@@ -7,6 +7,9 @@ vim.keymap.set('i', 'jj', "<Esc>")
 -- map <leader>s to write a file 
 vim.keymap.set('n', '<leader>s', ":w<CR>")
 
+-- file tree
+vim.keymap.set('n', '<leader>1', ":NvimTreeFindFileToggle<CR>")
+
 -- split mappings
 vim.keymap.set('n', '<Leader>v', ":vnew<CR>")
 vim.keymap.set('n', '<Leader>h', ":sp<CR>")

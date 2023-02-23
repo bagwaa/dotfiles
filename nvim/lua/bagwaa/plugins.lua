@@ -14,17 +14,33 @@ local packer_bootstrap = ensure_packer()
 require('packer').reset()
 require('packer').init({
     compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compiled.lua',
-    -- display = {
-    --    open_fn = function()
-    --        require require('packer.util').float({ border = 'solid' })
-    --    end 
-    -- },
+    display = {
+       open_fn = function()
+           return require('packer.util').float({ border = 'solid' })
+       end 
+    },
 })
 
 local use = require('packer').use
 
 -- Packer
 use('wbthomason/packer.nvim')
+
+-- Theme
+use({
+  'dracula/vim',
+  config = function ()
+    vim.cmd('let g:dracula_colorterm = 0')
+    vim.cmd('colorscheme dracula')
+    vim.api.nvim_set_hl(0, 'DraculaComment', { fg = 'gray' })
+
+    vim.api.nvim_set_hl(0, 'CursorLine', {
+        bg = '#30323E',
+    })
+    -- Changes to the highlight groups require :PackerCompile and :PackerClean
+  end,
+})
+
 
 -- Commenting support
 use('tpope/vim-commentary')
@@ -65,6 +81,29 @@ use({
     config = function()
       require('nvim-autopairs').setup()
     end
+})
+
+-- Telescope
+use({
+  'nvim-telescope/telescope.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'kyazdani42/nvim-web-devicons',
+    'nvim-telescope/telescope-live-grep-args.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  },
+  config = function()
+    require('bagwaa/plugins/telescope')
+  end,
+})
+
+-- Tree
+use({
+  'kyazdani42/nvim-tree.lua',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require('bagwaa/plugins/nvim-tree')
+  end,
 })
 
 if packer_bootstrap then
