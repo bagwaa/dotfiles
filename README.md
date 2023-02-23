@@ -17,4 +17,3 @@ Inside neovim run `:PackerSync`, `:PackerCompile`, and `:PackerClean`
 * Install machakann/vim-highlightedyank to show yank area flash
 * Install junegunn/vim-peekaboo especially if we opt to not use a shared copy buffer as we do currently
 * Install vim-harpoon by prime
-* :with
