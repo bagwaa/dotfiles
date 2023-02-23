@@ -1,3 +1,3 @@
-require('bagwaa/plugins')
-require('bagwaa/options')
-require('bagwaa/keymaps')
+require('user/plugins')
+require('user/options')
+require('user/keymaps')

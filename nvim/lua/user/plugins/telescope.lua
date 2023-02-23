@@ -2,7 +2,7 @@ local actions = require('telescope.actions')
 
 -- some keymappings to open telescope
 vim.keymap.set('n', '<C-p>', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-vim.keymap.set('n', '<C-o>', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (including vendor / node_modules)'})<CR>]])
+vim.keymap.set('n', '<C-o>', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (with vendors)'})<CR>]])
 vim.keymap.set('n', '<C-i>', [[<cmd>lua require('telescope.builtin').git_files()<CR>]])
 vim.keymap.set('n', '<Leader>bb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set('n', '<Leader>ff', [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
@@ -37,6 +37,11 @@ require('telescope').setup({
     },
     pickers = {
       find_files = {
+        previewer = false,
+        hidden = true,
+        layout_config = { width = 0.5, height = 0.5 }
+      },
+      git_files = {
         previewer = false,
         hidden = true,
         layout_config = { width = 0.5, height = 0.5 }

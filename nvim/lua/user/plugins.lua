@@ -93,7 +93,7 @@ use({
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   },
   config = function()
-    require('bagwaa/plugins/telescope')
+    require('user/plugins/telescope')
   end,
 })
 
@@ -102,7 +102,7 @@ use({
   'kyazdani42/nvim-tree.lua',
   requires = 'kyazdani42/nvim-web-devicons',
   config = function()
-    require('bagwaa/plugins/nvim-tree')
+    require('user/plugins/nvim-tree')
   end,
 })
 
