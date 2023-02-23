@@ -127,6 +127,14 @@ use({
   end,
 })
 
+-- Tests
+use({
+  'vim-test/vim-test',
+  config = function()
+    require('user/plugins/vim-test')
+  end,
+})
+
 -- Indent with vertical lines
 use({
   'lukas-reineke/indent-blankline.nvim',
@@ -213,10 +221,9 @@ use({
   }
 })
 
--- Terminal 
 use {
-  'akinsho/toggleterm.nvim', 
-  tag = '*', 
+  'akinsho/toggleterm.nvim',
+  tag = '*',
   config = function()
     require('toggleterm').setup({
         direction = "float",
@@ -234,6 +241,24 @@ use({
   config = function()
     vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
     vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
+  end,
+})
+
+-- Projectionist
+use({
+  'tpope/vim-projectionist',
+  requires = 'tpope/vim-dispatch',
+  config = function()
+    require('user/plugins/projectionist')
+  end
+})
+
+-- Dashboard
+use({
+  'glepnir/dashboard-nvim',
+  requires = {'nvim-tree/nvim-web-devicons'},
+  config = function()
+    require('user/plugins/dashboard')
   end,
 })
 
