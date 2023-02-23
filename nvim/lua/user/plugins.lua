@@ -15,9 +15,9 @@ require('packer').reset()
 require('packer').init({
     compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compiled.lua',
     display = {
-       open_fn = function()
-           return require('packer.util').float({ border = 'solid' })
-       end 
+      open_fn = function()
+        return require('packer.util').float({ border = 'solid' })
+      end
     },
 })
 
@@ -105,12 +105,12 @@ use({
   end,
 })
 
--- Status Line 
+-- Status Line
 use({
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('lualine').setup({ 
+      require('lualine').setup({
           options = {
             globalstatus = true
           }
@@ -140,7 +140,7 @@ use({
   'lukas-reineke/indent-blankline.nvim',
   config = function()
     require('indent_blankline').setup()
-  end 
+  end
 })
 
 -- Git

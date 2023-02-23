@@ -4,7 +4,7 @@ vim.g.maplocalleader = ','
 -- map jj to esc in insert mode
 vim.keymap.set('i', 'jj', "<Esc>")
 
--- map <leader>s to write a file 
+-- map <leader>s to write a file
 vim.keymap.set('n', '<leader>s', ":w<CR>")
 
 -- file tree

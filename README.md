@@ -1,9 +1,9 @@
 # Setup
 
-### TMUX Plugin install 
+### TMUX Plugin install
 
 <CTRL> A <SHIFT> I
 
 ### Neovim Plugin Install
 
-Inside neovim run :PackerSync
+Inside neovim run `:PackerSync`, `:PackerCompile`, and `:PackerClean`
