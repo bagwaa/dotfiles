@@ -41,7 +41,6 @@ use({
   end,
 })
 
-
 -- Commenting support
 use('tpope/vim-commentary')
 
@@ -105,6 +104,82 @@ use({
     require('user/plugins/nvim-tree')
   end,
 })
+
+-- Status Line 
+use({
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('lualine').setup({ 
+          options = {
+            globalstatus = true
+          }
+      })
+    end
+})
+
+-- Buffer Lines
+use({
+  'akinsho/bufferline.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require('user.plugins.bufferline')
+  end,
+})
+
+-- Indent with vertical lines
+use({
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('indent_blankline').setup()
+  end 
+})
+
+-- Git
+use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({ current_line_blame = true })
+      vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+      vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+      vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
+      vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
+      vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
+      vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
+    end
+})
+
+use({
+  'nvim-treesitter/nvim-treesitter',
+  run = function()
+    require('nvim-treesitter.install').update({ with_sync = true })
+  end,
+  requires = {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  config = function()
+    require('user.plugins.treesitter')
+  end,
+})
+
+use({
+  'tpope/vim-fugitive',
+  require = 'tpope/vim-rhubarb',
+})
+
+-- Terminal 
+use {
+  'akinsho/toggleterm.nvim', 
+  tag = '*', 
+  config = function()
+    require('toggleterm').setup({
+        direction = "float",
+    })
+    vim.keymap.set('n', '<Leader>cc', ':ToggleTerm<CR>')
+    vim.keymap.set('t', '<Leader>cc', '<C-\\><C-n>:ToggleTerm<CR>')
+  end
+}
 
 if packer_bootstrap then
     require('packer').snc()
