@@ -41,34 +41,34 @@ require('telescope').setup({
       find_files = {
         previewer = false,
         hidden = true,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       oldfiles = {
         previewer = false,
         hidden = true,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       git_files = {
         previewer = false,
         hidden = true,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       buffers = {
         previewer = false,
         hidden = true,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       lsp_references = {
         fname_width = 800,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       lsp_definitions = {
         fname_width = 800,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
       lsp_implementations = {
         fname_width = 800,
-        layout_config = { width = 0.5, height = 0.5 }
+        layout_config = { width = 0.5, height = 0.9 }
       },
     }
 })
