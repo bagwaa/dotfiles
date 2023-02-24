@@ -23,7 +23,10 @@ require('lspconfig').jsonls.setup({
 })
 
 -- null-ls
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 require('null-ls').setup({
+  temp_dir = "/tmp",
   sources = {
     require('null-ls').builtins.diagnostics.eslint_d.with({
       condition = function(utils)
@@ -37,7 +40,23 @@ require('null-ls').setup({
         end
     }),
     require('null-ls').builtins.formatting.prettierd,
-  }
+    require('null-ls').builtins.formatting.phpcsfixer,
+    require('null-ls').builtins.diagnostics.phpstan.with({
+      command = "vendor/bin/phpstan",
+    }),
+  },
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+            vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
+    end
+  end,
 })
 
 require('mason-null-ls').setup({ automatic_installation = true })
@@ -55,6 +74,5 @@ vim.keymap.set('n', '<Leader>r', ':Lspsaga rename<CR>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+vim.keymap.set('n', '<Leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
 
--- Commands
-vim.api.nvim_create_user_command('Format', vim.lsp.buf.formatting, {})
