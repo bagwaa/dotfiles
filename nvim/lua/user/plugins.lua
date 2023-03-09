@@ -23,10 +23,10 @@ require("packer").init({
 
 local use = require("packer").use
 
--- Packer
+-- packer (manage plugins for neovim)
 use("wbthomason/packer.nvim")
 
--- Highlight yank areas
+-- highlight_yank (flash yanked area when yanking)
 vim.cmd([[
 	augroup highlight_yank
 	autocmd!
@@ -34,7 +34,7 @@ vim.cmd([[
 	augroup END
 ]])
 
--- Interact with vim registers
+--  vim-peekaboo (show registers when yanking into different places)
 use({
 	"junegunn/vim-peekaboo",
 	config = function()
@@ -42,7 +42,7 @@ use({
 	end,
 })
 
--- Theme
+-- dracula (the best theme in the world)
 use({
 	"dracula/vim",
 	config = function()
@@ -57,40 +57,42 @@ use({
 	end,
 })
 
--- Commenting support
+-- vim-commentary (easier comments with "gc")
 use("tpope/vim-commentary")
 
--- Add, change, and delete surrounding text
+-- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
 use("tpope/vim-surround")
 
--- Useful commands like :Rename and :SudoWrite
+-- vim-eunuch (add some basic linux type commands :Rename :Chmod :SudoWrite)
 use("tpope/vim-eunuch")
 
--- Bracket mappings like [b and ]b
+-- vim-unimpaired (mapping added for ]b [b etc)
 use("tpope/vim-unimpaired")
 
--- Indent autodetection with editorconfig support
-use("tpope/vim-sleuth")
+-- vim-sleuth (detect file indentation and stick with that)
+-- use("tpope/vim-sleuth")
 
--- use the . key to repeat tpope commands
+-- vim-repeat (allow the use of the . key to repeat tpope package commands)
 use("tpope/vim-repeat")
 
--- Add more languages
+-- vim-polyglot (add some syntax highlights to all files)
 use("sheerun/vim-polyglot")
 
--- Open a file where we left off last time
+-- vim-lastplace (open a file wherre we left off last time it was open)
 use("farmergreg/vim-lastplace")
 
--- Create parent directories when saving a file if the directories do not exist
+-- vim-heritage (create the parent directories when creating files in paths that do not exist)
 use("jessarcher/vim-heritage")
 
--- Text objects for XML attributes
+-- vim-textobj-xmlattr (create two text objects for XML type attributes like class="header")
+-- ix (inside xml attribute) and ax (arround xml attribute)
+-- this allows us to manipulate them with commands like dax to delete around xml attribute
 use({
 	"whatyouhide/vim-textobj-xmlattr",
 	requires = "kana/vim-textobj-user",
 })
 
--- Autopairs
+-- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
 use({
 	"windwp/nvim-autopairs",
 	config = function()
@@ -98,7 +100,7 @@ use({
 	end,
 })
 
--- Telescope
+-- nvim-telescope (fuzzy search front end)
 use({
 	"nvim-telescope/telescope.nvim",
 	requires = {
@@ -112,7 +114,7 @@ use({
 	end,
 })
 
--- Tree
+-- nvim-tree (toggles the sidebar with ,1 and ,2 to collapse the content)
 use({
 	"kyazdani42/nvim-tree.lua",
 	requires = "kyazdani42/nvim-web-devicons",
@@ -121,7 +123,7 @@ use({
 	end,
 })
 
--- Status Line
+-- nvim-lualine (gives us a nice status line)
 use({
 	"nvim-lualine/lualine.nvim",
 	requires = "kyazdani42/nvim-web-devicons",
@@ -134,7 +136,7 @@ use({
 	end,
 })
 
--- Buffer Lines
+-- bufferline (shows all the open buffers in a tab-like appearance)
 use({
 	"akinsho/bufferline.nvim",
 	requires = "kyazdani42/nvim-web-devicons",
@@ -143,7 +145,7 @@ use({
 	end,
 })
 
--- Tests
+-- vim-test (a configurable test runner which adds commands like ,tt ,tn and ,tf)
 use({
 	"vim-test/vim-test",
 	config = function()
@@ -151,7 +153,7 @@ use({
 	end,
 })
 
--- Indent with vertical lines
+-- indent-blankline (add vertical lines to show indent matches easily)
 use({
 	"lukas-reineke/indent-blankline.nvim",
 	config = function()
@@ -159,7 +161,7 @@ use({
 	end,
 })
 
--- Git
+-- gitsigns (add some git commands to navigate and handle changes)
 use({
 	"lewis6991/gitsigns.nvim",
 	config = function()
@@ -173,11 +175,13 @@ use({
 	end,
 })
 
+-- vim-fugitive (add :Git directly into neovim)
 use({
 	"tpope/vim-fugitive",
 	require = "tpope/vim-rhubarb",
 })
--- Treesitter and Textobjects
+
+-- treesitter (add meaning to source files we edit, this allows better highlighting)
 use({
 	"nvim-treesitter/nvim-treesitter",
 	run = function()
@@ -192,7 +196,7 @@ use({
 	end,
 })
 
--- Language Server Protocol
+-- nvim-lspconfig (allow us to install and manage language servers with configs)
 use({
 	"neovim/nvim-lspconfig",
 	requires = {
@@ -207,7 +211,7 @@ use({
 	end,
 })
 
--- Completion
+-- nvim-cmp (a completion engine frontend of neovim, works closely with LSPs)
 use({
 	"hrsh7th/nvim-cmp",
 	requires = {
@@ -224,6 +228,7 @@ use({
 	end,
 })
 
+-- lspsaga (provides lsp tools like code actions ,a)
 use({
 	"glepnir/lspsaga.nvim",
 	branch = "main",
@@ -236,6 +241,7 @@ use({
 	},
 })
 
+-- toggleterm (gives us a floating terminal window in neovim by typing ,cc)
 use({
 	"akinsho/toggleterm.nvim",
 	tag = "*",
@@ -248,7 +254,7 @@ use({
 	end,
 })
 
--- PHP Refactoring
+-- phpactor (add a bunch of useful :Php commands like :PhpactorClassNew to vim)
 use({
 	"phpactor/phpactor",
 	ft = "php",
@@ -259,7 +265,12 @@ use({
 	end,
 })
 
--- Projectionist
+-- projectionist (match a src file to a test file, use :A :AS and :AT)
+-- Example Workflow
+-- 1) Goto the User.php model
+-- 2) Type ,e to run :A and create the TestFile
+-- 3) Select if the Test is a feature test or unit test
+-- 4) Once the file is open type utest or ftest to create one of the test class snippets
 use({
 	"tpope/vim-projectionist",
 	requires = "tpope/vim-dispatch",
@@ -268,12 +279,11 @@ use({
 	end,
 })
 
--- Dashboard
+-- ale (enables linting on files that we specify, will probably replace with null-ls at some point)
 use({
-	"glepnir/dashboard-nvim",
-	requires = { "nvim-tree/nvim-web-devicons" },
+	"dense-analysis/ale",
 	config = function()
-		require("user/plugins/dashboard")
+		require("user/plugins/ale")
 	end,
 })
 
