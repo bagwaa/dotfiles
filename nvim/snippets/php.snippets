@@ -29,3 +29,25 @@ snippet testa "test method (annotation)"
         ${0}
     }
 
+snippet testdp "test method with data provider"
+    /**
+     * @test
+     * @dataProvider provide_data
+     */
+    public function ${1}(string $a, string $b): void
+    {
+        ${0}
+    }
+
+    public function provide_data(): Generator
+    {
+        yield 'Configuration One' => [
+            'a',
+            'b',
+        ];
+
+        yield 'Configuration Two' => [
+            'c',
+            'd',
+        ];
+    }
