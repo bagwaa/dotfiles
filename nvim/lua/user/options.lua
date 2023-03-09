@@ -10,6 +10,17 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append({
+	"*/.git/*",
+	"*/.hg/*",
+	"*/.svn/*",
+	"*/.idea/*",
+	"*/vendor/*",
+	"*/storage/*",
+	"*/cache/*",
+	"*/node_modules/*",
+	"*/bower_components/*",
+})
 vim.opt.completeopt = "menuone,longest,preview"
 
 vim.opt.mouse = "a"
