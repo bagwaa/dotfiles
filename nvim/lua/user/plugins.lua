@@ -298,14 +298,6 @@ use({
 	end,
 })
 
--- Ale
-use({
-	"dense-analysis/ale",
-	config = function()
-		require("user/plugins/ale")
-	end,
-})
-
 if packer_bootstrap then
 	require("packer").snc()
 end
