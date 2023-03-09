@@ -1,3 +1,36 @@
+snippet utest "unit test class"
+    <?php
+
+    namespace Tests\Unit;
+
+    use PHPUnit\Framework\TestCase;
+
+    class ${1}Test extends TestCase
+    {
+        /** @test */
+        public function it_${2}(): void
+        {
+            ${0}
+        }
+    }
+
+snippet ftest "feature test class"
+    <?php
+
+    namespace Tests\Feature;
+
+    // use Illuminate\Foundation\Testing\RefreshDatabase;
+    use Tests\TestCase;
+
+    class ${1}Test extends TestCase
+    {
+        /** @test */
+        public function it_${2}(): void
+        {
+            ${0}
+        }
+    }
+
 snippet pubf "public method"
     public function ${1}(${2}): ${3}
     {
@@ -17,14 +50,14 @@ snippet prif "private method"
     }
 
 snippet testt "test method (prefix)"
-    public function test_${1}()
+    public function test_${1}(): void
     {
         ${0}
     }
 
 snippet testa "test method (annotation)"
     /** @test */
-    public function ${1}()
+    public function ${1}(): void
     {
         ${0}
     }
