@@ -287,6 +287,17 @@ use({
 	end,
 })
 
+-- auto-session (remember the previous session when restarting neovim)
+use({
+	"rmagatti/auto-session",
+	config = function()
+		require("auto-session").setup({
+			log_level = "error",
+			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+		})
+	end,
+})
+
 if packer_bootstrap then
 	require("packer").snc()
 end
