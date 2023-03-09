@@ -28,24 +28,24 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
 	temp_dir = "/tmp",
 	sources = {
+		require("null-ls").builtins.formatting.stylua,
 		require("null-ls").builtins.diagnostics.trail_space.with({
 			disabled_filetypes = { "NvimTree" },
 		}),
 		require("null-ls").builtins.formatting.prettier.with({
 			extra_args = { "--no-semi", "--single-quote" },
 		}),
-		require("null-ls").builtins.formatting.phpcsfixer.with({
-			condition = function(utils)
-				return utils.root_has_file({ "vendor/bin/php-cs-fixer" })
-			end,
-			extra_args = { "--rules=@PSR12" },
-		}),
-		require("null-ls").builtins.diagnostics.phpstan.with({
-			condition = function(utils)
-				return utils.root_has_file({ "vendor/bin/phpstan" })
-			end,
-		}),
-		require("null-ls").builtins.formatting.stylua,
+		-- require("null-ls").builtins.formatting.phpcsfixer.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ "vendor/bin/php-cs-fixer" })
+		-- 	end,
+		-- 	extra_args = { "--rules=@PSR12" },
+		-- }),
+		-- require("null-ls").builtins.diagnostics.phpstan.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file({ "vendor/bin/phpstan" })
+		-- 	end,
+		-- }),
 		-- require("null-ls").builtins.diagnostics.psalm.with({
 		-- 	condition = function(utils)
 		-- 		return utils.root_has_file({ "vendor/bin/psalm" })
