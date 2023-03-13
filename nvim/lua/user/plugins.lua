@@ -298,6 +298,18 @@ use({
 	end,
 })
 
+-- debugging
+use({
+	"rcarriga/nvim-dap-ui",
+	requires = {
+		"mfussenegger/nvim-dap",
+		"mfussenegger/nvim-dap-python",
+	},
+	config = function()
+		require("user/plugins/debugging")
+	end,
+})
+
 if packer_bootstrap then
 	require("packer").snc()
 end
