@@ -25,6 +25,10 @@ vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 
+-- use tab and shift tab to cycle through buffers
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+
 -- disable arrow keys
 vim.keymap.set("n", "<Up>", "<Nop>")
 vim.keymap.set("n", "<Down>", "<Nop>")
