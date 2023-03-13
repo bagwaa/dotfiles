@@ -73,3 +73,14 @@ When searching using ripgrep we can pass some extra arguments in the search like
 - `"foo" app` search for foo in the app directory
 - `"foo" -tphp` search for foo in php files only
 - `"foo" -tphp app` search for foo in php files only within the app folder
+
+### Degugging
+
+#### Python
+
+```
+mkdir .virtualenvs
+cd .virtualenvs
+python -m venv debugpy
+debugpy/bin/python -m pip install debugpy
+```

@@ -228,19 +228,6 @@ use({
 	end,
 })
 
--- lspsaga (provides lsp tools like code actions ,a)
-use({
-	"glepnir/lspsaga.nvim",
-	branch = "main",
-	config = function()
-		require("lspsaga").setup({})
-	end,
-	requires = {
-		{ "nvim-tree/nvim-web-devicons" },
-		{ "nvim-treesitter/nvim-treesitter" },
-	},
-})
-
 -- toggleterm (gives us a floating terminal window in neovim by typing ,cc)
 use({
 	"akinsho/toggleterm.nvim",

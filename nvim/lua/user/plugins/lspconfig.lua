@@ -6,6 +6,8 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 -- PHP (license key in ~/intelephense)
 require("lspconfig").intelephense.setup({ capabilities = capabilities })
 
+require("lspconfig").pyright.setup({ capabilities = capabilities })
+
 -- Vue, Javascript, Typescript
 require("lspconfig").volar.setup({
 	capabilities = capabilities,

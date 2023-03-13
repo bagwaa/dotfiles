@@ -1,4 +1,4 @@
-require("dap-python").setup("~/Code/Python/.virtualenvs/debugpy/bin/python")
+require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 require("dapui").setup()
 
 vim.keymap.set("n", "<leader>dt", ":DapToggleBreakpoint<CR>")
@@ -11,10 +11,10 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
 
--- dap.listeners.before.event_terminated["dapui_config"] = function()
--- 	dapui.close()
--- end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
 
--- dap.listeners.before.event_exited["dapui_config"] = function()
--- 	dapui.close()
--- end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
