@@ -137,13 +137,13 @@ use({
 })
 
 -- bufferline (shows all the open buffers in a tab-like appearance)
-use({
-	"akinsho/bufferline.nvim",
-	requires = "kyazdani42/nvim-web-devicons",
-	config = function()
-		require("user.plugins.bufferline")
-	end,
-})
+-- use({
+-- 	"akinsho/bufferline.nvim",
+-- 	requires = "kyazdani42/nvim-web-devicons",
+-- 	config = function()
+-- 		require("user.plugins.bufferline")
+-- 	end,
+-- })
 
 -- vim-test (a configurable test runner which adds commands like ,tt ,tn and ,tf)
 use({
@@ -228,6 +228,19 @@ use({
 	end,
 })
 
+-- lspsaga (provides lsp tools like code actions ,a)
+use({
+	"glepnir/lspsaga.nvim",
+	branch = "main",
+	config = function()
+		require("lspsaga").setup({})
+	end,
+	requires = {
+		{ "nvim-tree/nvim-web-devicons" },
+		{ "nvim-treesitter/nvim-treesitter" },
+	},
+})
+
 -- toggleterm (gives us a floating terminal window in neovim by typing ,cc)
 use({
 	"akinsho/toggleterm.nvim",
@@ -275,15 +288,15 @@ use({
 })
 
 -- auto-session (remember the previous session when restarting neovim)
-use({
-	"rmagatti/auto-session",
-	config = function()
-		require("auto-session").setup({
-			log_level = "error",
-			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-		})
-	end,
-})
+-- use({
+-- 	"rmagatti/auto-session",
+-- 	config = function()
+-- 		require("auto-session").setup({
+-- 			log_level = "error",
+-- 			auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+-- 		})
+-- 	end,
+-- })
 
 -- debugging
 use({
