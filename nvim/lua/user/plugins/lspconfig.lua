@@ -6,6 +6,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 -- PHP (license key in ~/intelephense)
 require("lspconfig").intelephense.setup({ capabilities = capabilities })
 
+-- Python
 require("lspconfig").pyright.setup({ capabilities = capabilities })
 
 -- Vue, Javascript, Typescript
@@ -34,27 +35,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.diagnostics.trail_space.with({
 			disabled_filetypes = { "NvimTree" },
 		}),
-		require("null-ls").builtins.formatting.prettier.with({
-			extra_args = { "--no-semi", "--single-quote" },
-		}),
-		-- require("null-ls").builtins.formatting.phpcsfixer.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ "vendor/bin/php-cs-fixer" })
-		-- 	end,
-		-- 	extra_args = { "--rules=@PSR12" },
-		-- }),
-		-- require("null-ls").builtins.diagnostics.phpstan.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ "vendor/bin/phpstan" })
-		-- 	end,
-		-- }),
-		-- require("null-ls").builtins.diagnostics.psalm.with({
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file({ "vendor/bin/psalm" })
-		-- 	end,
-		-- 	diagnostics_format = "psalm: [#{c}] #{m}",
-		-- 	extra_args = { "--show-info=true" },
-		-- }),
+		require("null-ls").builtins.diagnostics.jsonlint,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
