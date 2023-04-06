@@ -161,6 +161,19 @@ use({
 	end,
 })
 
+-- LSP saga for code actions
+use({
+	"glepnir/lspsaga.nvim",
+	branch = "main",
+	config = function()
+		require("lspsaga").setup({})
+	end,
+	requires = {
+		{ "nvim-tree/nvim-web-devicons" },
+		{ "nvim-treesitter/nvim-treesitter" },
+	},
+})
+
 -- gitsigns (add some git commands to navigate and handle changes)
 use({
 	"lewis6991/gitsigns.nvim",
