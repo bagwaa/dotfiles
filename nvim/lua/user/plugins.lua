@@ -323,6 +323,14 @@ use({
 	end,
 })
 
+-- GitHub Copilot - CTRL+SPACE to activate
+use({
+	"github/copilot.vim",
+	config = function()
+		require("user/plugins/copilot")
+	end,
+})
+
 if packer_bootstrap then
 	require("packer").snc()
 end
