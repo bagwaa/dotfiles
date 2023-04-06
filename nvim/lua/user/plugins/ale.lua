@@ -2,7 +2,7 @@ vim.cmd([[
   highlight clear ALEErrorSign
   highlight clear ALEWarningSign
   let g:ale_linters = { 'php': ['php', 'phpstan'] }
-  let g:ale_fixers = { 'php': ['php_cs_fixer'] }
+  let g:ale_fixers = { 'php': ['php_cs_fixer', 'phpcbf'] }
 ]])
 
 vim.g.ale_linters_explicit = 1
