@@ -74,8 +74,6 @@ When searching using ripgrep we can pass some extra arguments in the search like
 - `"foo" -tphp` search for foo in php files only
 - `"foo" -tphp app` search for foo in php files only within the app folder
 
-### Degugging
-
 #### Python
 
 ```
@@ -84,3 +82,7 @@ cd .virtualenvs
 python -m venv debugpy
 debugpy/bin/python -m pip install debugpy
 ```
+
+#### Tailwind
+
+TailwindCSS is installed in the LSP, however it won't work unless tailwind is actually installed into the project
