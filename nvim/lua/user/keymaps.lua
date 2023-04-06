@@ -1,5 +1,4 @@
 vim.g.mapleader = ","
-vim.g.maplocalleader = ","
 
 -- map jj to esc in insert mode
 vim.keymap.set("i", "jj", "<Esc>")
