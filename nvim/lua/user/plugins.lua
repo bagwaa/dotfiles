@@ -161,6 +161,19 @@ use({
 	end,
 })
 
+-- LSP saga for code actions
+use({
+	"glepnir/lspsaga.nvim",
+	branch = "main",
+	config = function()
+		require("lspsaga").setup({})
+	end,
+	requires = {
+		{ "nvim-tree/nvim-web-devicons" },
+		{ "nvim-treesitter/nvim-treesitter" },
+	},
+})
+
 -- gitsigns (add some git commands to navigate and handle changes)
 use({
 	"lewis6991/gitsigns.nvim",
@@ -226,19 +239,6 @@ use({
 	config = function()
 		require("user/plugins/cmp")
 	end,
-})
-
--- lspsaga (provides lsp tools like code actions ,a)
-use({
-	"glepnir/lspsaga.nvim",
-	branch = "main",
-	config = function()
-		require("lspsaga").setup({})
-	end,
-	requires = {
-		{ "nvim-tree/nvim-web-devicons" },
-		{ "nvim-treesitter/nvim-treesitter" },
-	},
 })
 
 -- toggleterm (gives us a floating terminal window in neovim by typing ,cc)
@@ -319,6 +319,14 @@ use({
 })
 
 vim.cmd([[autocmd BufWritePost * lua require("notify")("Saved")]])
+
+-- GitHub Copilot - CTRL+SPACE to activate
+use({
+	"github/copilot.vim",
+	config = function()
+		require("user/plugins/copilot")
+	end,
+})
 
 if packer_bootstrap then
 	require("packer").snc()
