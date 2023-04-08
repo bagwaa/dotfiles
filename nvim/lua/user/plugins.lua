@@ -328,6 +328,18 @@ use({
 	end,
 })
 
+-- Rust tools
+use({
+	"simrat39/rust-tools.nvim",
+	requires = {
+		"nvim-lua/plenary.nvim",
+		"nvim-lua/popup.nvim",
+	},
+	config = function()
+		require("user/plugins/rust")
+	end,
+})
+
 if packer_bootstrap then
 	require("packer").snc()
 end
