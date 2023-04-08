@@ -27,12 +27,12 @@ local use = require("packer").use
 use("wbthomason/packer.nvim")
 
 -- highlight_yank (flash yanked area when yanking)
-vim.cmd([[
-	augroup highlight_yank
-	autocmd!
-	au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
-	augroup END
-]])
+-- vim.cmd([[
+--	augroup highlight_yank
+--	autocmd!
+--	au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+--	augroup END
+--]])
 
 --  vim-peekaboo (show registers when yanking into different places)
 use({
@@ -310,13 +310,16 @@ use({
 	end,
 })
 
+-- notify
+use({
+	"rcarriga/nvim-notify",
+	config = function()
+		require("user/plugins/notify")
+	end,
+})
+
+vim.cmd([[autocmd BufWritePost * lua require("notify")("Saved")]])
+
 if packer_bootstrap then
 	require("packer").snc()
 end
-
-vim.cmd([[
-  augroup plugin_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile>
-  augroup end
-]])
