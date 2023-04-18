@@ -210,19 +210,19 @@ use({
 vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
 
 -- treesitter (add meaning to source files we edit, this allows better highlighting)
--- use({
---     "nvim-treesitter/nvim-treesitter",
---     run = function()
---         require("nvim-treesitter.install").update({ with_sync = true })
---     end,
---     requires = {
---         "JoosepAlviste/nvim-ts-context-commentstring",
---         -- "nvim-treesitter/nvim-treesitter-textobjects",
---     },
---     config = function()
---         require("user.plugins.treesitter")
---     end,
--- })
+use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+        require("nvim-treesitter.install").update({ with_sync = true })
+    end,
+    requires = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        -- "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    config = function()
+        require("user.plugins.treesitter")
+    end,
+})
 
 -- auto-session (remember the previous session when restarting neovim)
 -- use({
