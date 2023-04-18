@@ -1,10 +1,10 @@
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-
-vim.opt.smartindent = true
-vim.opt.wrap = false
+vim.cmd([[
+    set autoindent
+    set expandtab
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=4
+]])
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -21,6 +21,7 @@ vim.opt.wildignore:append({
 	"*/node_modules/*",
 	"*/bower_components/*",
 })
+
 vim.opt.completeopt = "menuone,longest,preview"
 
 vim.opt.mouse = "a"

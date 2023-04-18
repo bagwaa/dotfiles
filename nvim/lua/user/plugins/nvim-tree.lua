@@ -17,9 +17,8 @@ require("nvim-tree").setup({
 	renderer = {
 		group_empty = true,
 	},
-
 	git = {
-		enable = true,
+		enable = false,
 		timeout = 800, -- (in ms)
 	},
 })
