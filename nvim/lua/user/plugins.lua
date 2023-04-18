@@ -275,8 +275,6 @@ vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
 --  requires = "kana/vim-textobj-user",
 -- })
 
-
-
 if packer_bootstrap then
     require("packer").snc()
 end
