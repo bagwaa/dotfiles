@@ -9,6 +9,9 @@ require("lspconfig").intelephense.setup({ capabilities = capabilities })
 -- Python
 require("lspconfig").pyright.setup({ capabilities = capabilities })
 
+-- Rust
+require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
+
 -- Vue, Javascript, Typescript
 require("lspconfig").volar.setup({
     capabilities = capabilities,

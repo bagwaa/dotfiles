@@ -195,6 +195,18 @@ use({
     end,
 })
 
+-- Rust tools
+use({
+    "simrat39/rust-tools.nvim",
+    requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-lua/popup.nvim",
+    },
+    config = function()
+        require("user/plugins/rust")
+    end,
+})
+
 vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
 
 -- treesitter (add meaning to source files we edit, this allows better highlighting)
@@ -263,58 +275,8 @@ vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
 --  requires = "kana/vim-textobj-user",
 -- })
 
--- bufferline (shows all the open buffers in a tab-like appearance)
--- use({
---  "akinsho/bufferline.nvim",
---  requires = "kyazdani42/nvim-web-devicons",
---  config = function()
---      require("user.plugins.bufferline")
---  end,
--- })
 
--- vim-fugitive (add :Git directly into neovim)
--- use({
---  "tpope/vim-fugitive",
---  require = "tpope/vim-rhubarb",
--- })
 
--- toggleterm (gives us a floating terminal window in neovim by typing ,cc)
--- use({
---  "akinsho/toggleterm.nvim",
---  tag = "*",
---  config = function()
---      require("toggleterm").setup({
---          direction = "float",
---      })
---      vim.keymap.set("n", "<Leader>cc", ":ToggleTerm<CR>")
---      vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
---  end,
--- })
-
--- phpactor (add a bunch of useful :Php commands like :PhpactorClassNew to vim)
--- use({
---  "phpactor/phpactor",
---  ft = "php",
---  run = "composer install --no-dev --optimize-autoloader",
---  config = function()
---      vim.keymap.set("n", "<Leader>pm", ":PhpactorContextMenu<CR>")
---      vim.keymap.set("n", "<Leader>pn", ":PhpactorClassNew<CR>")
---  end,
--- })
-
--- projectionist (match a src file to a test file, use :A :AS and :AT)
--- Example Workflow
--- 1) Goto the User.php model
--- 2) Type ,e to run :A and create the TestFile
--- 3) Select if the Test is a feature test or unit test
--- 4) Once the file is open type utest or ftest to create one of the test class snippets
--- use({
---  "tpope/vim-projectionist",
---  requires = "tpope/vim-dispatch",
---  config = function()
---      require("user/plugins/projectionist")
---  end,
--- })
 if packer_bootstrap then
     require("packer").snc()
 end
