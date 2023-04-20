@@ -35,6 +35,9 @@ vim.keymap.set("n", "<Down>", "<Nop>")
 vim.keymap.set("n", "<Left>", "<Nop>")
 vim.keymap.set("n", "<Right>", "<Nop>")
 
+-- keymap for a scratch pad
+vim.keymap.set("n", "<Leader>g", ":VimwikiIndex<CR>")
+
 -- allow us to use j and k up and down through wrapped text
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })

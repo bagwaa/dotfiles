@@ -70,6 +70,9 @@ use("sheerun/vim-polyglot")
 -- vim-lastplace (open a file wherre we left off last time it was open)
 use("farmergreg/vim-lastplace")
 
+-- vim wiki
+use("vimwiki/vimwiki")
+
 -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
 use({
     "windwp/nvim-autopairs",
@@ -101,6 +104,7 @@ use({
     end,
 })
 
+-- status bar
 use({
     "feline-nvim/feline.nvim",
     config = function()
