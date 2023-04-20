@@ -1,3 +1,10 @@
+-- Description: Rust server_configurations
+--
+local extension_path = vim.env.HOME .. "~/.vscode/extensions/vadimcn.vscode-lldb-1.9.0/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+
+-- RustFmt on Save
 vim.api.nvim_create_autocmd("BufWritePre", {
 	group = augroup,
 	buffer = bufnr,
@@ -7,6 +14,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Run Rust Program with <leader><leader>r
+vim.keymap.set("n", "<leader><leader>r", ":RustRun<CR>")
+
+-- Rust Tools Configutation
 local opts = {
 	tools = { -- rust-tools options
 
@@ -173,13 +184,16 @@ local opts = {
 	}, -- rust-analyzer options
 
 	-- debugging stuff
-	dap = {
-		adapter = {
-			type = "executable",
-			command = "lldb-vscode",
-			name = "rt_lldb",
-		},
-	},
+	-- dap = {
+	-- 	adapter = {
+	-- 		type = "executable",
+	-- 		command = "lldb-vscode",
+	-- 		name = "rt_lldb",
+	-- 	},
+	-- },
+	-- dap = {
+	-- 	adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+	-- },
 }
 
 require("rust-tools").setup(opts)
