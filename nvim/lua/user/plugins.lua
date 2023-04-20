@@ -228,6 +228,19 @@ use({
     end,
 })
 
+-- debugging
+use({
+ "rcarriga/nvim-dap-ui",
+ requires = {
+     "mfussenegger/nvim-dap",
+     "mfussenegger/nvim-dap-python",
+ },
+ config = function()
+     require("user/plugins/debugging")
+ end,
+})
+
+
 -- auto-session (remember the previous session when restarting neovim)
 -- use({
 --     "rmagatti/auto-session",
@@ -244,18 +257,6 @@ use({
 --  "github/copilot.vim",
 --  config = function()
 --      require("user/plugins/copilot")
---  end,
--- })
-
--- debugging
--- use({
---  "rcarriga/nvim-dap-ui",
---  requires = {
---      "mfussenegger/nvim-dap",
---      "mfussenegger/nvim-dap-python",
---  },
---  config = function()
---      require("user/plugins/debugging")
 --  end,
 -- })
 
