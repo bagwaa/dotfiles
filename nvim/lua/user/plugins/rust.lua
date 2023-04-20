@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Run Rust Program with <leader><leader>r
-vim.keymap.set("n", "<leader><leader>r", ":RustRun<CR>")
+vim.keymap.set("n", "<leader><leader>r", ":RustRunnables<CR>")
 
 -- Rust Tools Configutation
 local opts = {
@@ -182,6 +182,7 @@ local opts = {
 		-- setting it to false may improve startup time
 		standalone = true,
 	}, -- rust-analyzer options
+
 
 	-- debugging stuff
 	-- dap = {
