@@ -48,7 +48,7 @@ vim.keymap.set("v", ">", ">gv")
 
 -- add , and ; to the end of lines really quickly with a double tap
 vim.keymap.set("i", ";;", "<Esc>A;")
-vim.keymap.set("i", ",,", "<Esc>A,")
+-- vim.keymap.set("i", ",,", "<Esc>A,")
 
 -- clear search highlighting in the buffer
 vim.keymap.set("n", "<Leader>k", ":nohlsearch<CR>")
