@@ -70,9 +70,6 @@ use("sheerun/vim-polyglot")
 -- vim-lastplace (open a file wherre we left off last time it was open)
 use("farmergreg/vim-lastplace")
 
--- vim wiki
-use("vimwiki/vimwiki")
-
 -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
 use({
     "windwp/nvim-autopairs",
@@ -101,6 +98,15 @@ use({
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
         require("user/plugins/nvim-tree")
+    end,
+})
+
+-- vim wiki
+-- add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
+use({
+    "vimwiki/vimwiki",
+    config = function()
+        vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI }}
     end,
 })
 
@@ -240,6 +246,15 @@ use({
  end,
 })
 
+-- GitHub Copilot - CTRL+SPACE to activate
+-- use({
+--     "github/copilot.vim",
+--     config = function()
+--         require("user/plugins/copilot")
+--     end,
+-- })
+
+
 
 -- auto-session (remember the previous session when restarting neovim)
 -- use({
@@ -250,14 +265,6 @@ use({
 --             auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 --         })
 --     end,
--- })
-
--- GitHub Copilot - CTRL+SPACE to activate
--- use({
---  "github/copilot.vim",
---  config = function()
---      require("user/plugins/copilot")
---  end,
 -- })
 
 -- vim-unimpaired (mapping added for ]b [b etc)
