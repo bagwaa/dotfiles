@@ -23,8 +23,8 @@ vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 
 -- use tab and shift tab to cycle through buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+-- vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+-- vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 
 -- open the file
 vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
@@ -35,7 +35,7 @@ vim.keymap.set("n", "<Down>", "<Nop>")
 vim.keymap.set("n", "<Left>", "<Nop>")
 vim.keymap.set("n", "<Right>", "<Nop>")
 
--- keymap for a scratch pad
+-- vimwiki
 vim.keymap.set("n", "<Leader>g", ":VimwikiIndex<CR>")
 
 -- allow us to use j and k up and down through wrapped text
@@ -47,7 +47,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- add , and ; to the end of lines really quickly with a double tap
-vim.keymap.set("i", ";;", "<Esc>A;")
+-- vim.keymap.set("i", ";;", "<Esc>A;")
 -- vim.keymap.set("i", ",,", "<Esc>A,")
 
 -- clear search highlighting in the buffer
