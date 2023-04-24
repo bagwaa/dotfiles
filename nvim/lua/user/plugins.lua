@@ -58,6 +58,18 @@ use({
     end,
 })
 
+use({
+	"akinsho/toggleterm.nvim",
+	tag = "*",
+	config = function()
+		require("toggleterm").setup({
+			direction = "float",
+		})
+		vim.keymap.set("n", "<Leader>cc", ":ToggleTerm<CR>")
+		vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
+	end,
+});
+
 -- vim-commentary (easier comments with "gc")
 use("tpope/vim-commentary")
 
