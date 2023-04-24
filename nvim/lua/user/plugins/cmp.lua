@@ -26,31 +26,45 @@ cmp.setup({
 		}),
 	},
 	mapping = {
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(1) then
-				luasnip.jump(1)
-			elseif cmp.visible() then
+		["<Tab>"] = function(fallback)
+			if cmp.visible() then
 				cmp.select_next_item()
-			elseif has_words_before() then
-				cmp.complete()
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			elseif cmp.visible() then
+		end,
+		["<S-Tab>"] = function(fallback)
+			if cmp.visible() then
 				cmp.select_prev_item()
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
+		end,
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		-- ["<Tab>"] = cmp.mapping(function(fallback)
+		-- 	if luasnip.jumpable(1) then
+		-- 		luasnip.jump(1)
+		-- 	elseif cmp.visible() then
+		-- 		cmp.select_next_item()
+		-- 	elseif has_words_before() then
+		-- 		cmp.complete()
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, { "i", "s" }),
+		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+		-- 	if luasnip.jumpable(-1) then
+		-- 		luasnip.jump(-1)
+		-- 	elseif cmp.visible() then
+		-- 		cmp.select_prev_item()
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, { "i", "s" }),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lsp_signature_help" },
+		-- { name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "path" },
