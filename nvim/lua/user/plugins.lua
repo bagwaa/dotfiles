@@ -230,7 +230,7 @@ use({
     end,
 })
 
-vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
+-- vim.cmd([[autocmd BufWritePost * lua require("notify")("...")]])
 
 -- treesitter (add meaning to source files we edit, this allows better highlighting)
 use({
