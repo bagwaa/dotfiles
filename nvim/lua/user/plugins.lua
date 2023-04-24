@@ -211,12 +211,12 @@ use({
 })
 
 -- notify
-use({
-    "rcarriga/nvim-notify",
-    config = function()
-        require("user/plugins/notify")
-    end,
-})
+-- use({
+--     "rcarriga/nvim-notify",
+--     config = function()
+--         require("user/plugins/notify")
+--     end,
+-- })
 
 -- Rust tools
 use({
