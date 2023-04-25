@@ -14,6 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            vim.cmd("colorscheme catppuccin-mocha")
+        end,
+        enabled = true,
+    },
+    {
         -- dracula (the best theme in the world)
         "dracula/vim",
         config = function()
@@ -25,7 +33,7 @@ require("lazy").setup({
                 bg = "#30323E",
             })
         end,
-        enabled = true,
+        enabled = false,
     },
     {
         --  vim-peekaboo (show registers when yanking into different places)
