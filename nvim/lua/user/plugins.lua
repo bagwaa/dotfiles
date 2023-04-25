@@ -25,6 +25,7 @@ require("lazy").setup({
                 bg = "#30323E",
             })
         end,
+        enabled = true
     },
     {
         --  vim-peekaboo (show registers when yanking into different places)
@@ -223,5 +224,11 @@ require("lazy").setup({
             require("user/plugins/copilot")
         end,
         enabled = false
+    },
+    {
+        "ThePrimeagen/harpoon",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        }
     }
 }, {})
