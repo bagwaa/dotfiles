@@ -1,6 +1,3 @@
--- map a leader key
-vim.g.mapleader = ","
-
 -- map jj to esc in insert mode
 vim.keymap.set("i", "jj", "<Esc>")
 
