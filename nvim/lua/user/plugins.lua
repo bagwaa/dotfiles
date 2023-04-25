@@ -25,7 +25,7 @@ require("lazy").setup({
                 bg = "#30323E",
             })
         end,
-        enabled = true
+        enabled = true,
     },
     {
         --  vim-peekaboo (show registers when yanking into different places)
@@ -33,6 +33,7 @@ require("lazy").setup({
         config = function()
             vim.cmd("let g:peekaboo_window = 'vertical botright 80new'")
         end,
+        enabled = true,
     },
     {
         -- toggle a terminal in a popup
@@ -44,23 +45,28 @@ require("lazy").setup({
             })
             vim.keymap.set("n", "<Leader>cc", ":ToggleTerm<CR>")
             vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
-        end
+        end,
+        enabled = true,
     },
     {
         -- vim-commentary (easier comments with "gc")
-        "tpope/vim-commentary"
+        "tpope/vim-commentary",
+        enabled = true,
     },
     {
         -- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
         "tpope/vim-surround",
+        enabled = true,
     },
     {
         -- vim-polyglot (add some syntax highlights to all files)
         "sheerun/vim-polyglot",
+        enabled = false,
     },
     {
         -- vim-lastplace (open a file wherre we left off last time it was open)
         "farmergreg/vim-lastplace",
+        enabled = true,
     },
     {
         -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
@@ -68,6 +74,7 @@ require("lazy").setup({
         config = function()
             require("nvim-autopairs").setup()
         end,
+        enabled = true,
     },
     {
         -- nvim-telescope (fuzzy search front end)
@@ -81,6 +88,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/telescope")
         end,
+        enabled = true,
     },
     {
         -- nvim-tree (toggles the sidebar with ,1 and ,2 to collapse the content)
@@ -93,6 +101,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/nvim-tree")
         end,
+        enabled = true,
     },
     {
         -- vim wiki / add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
@@ -100,6 +109,7 @@ require("lazy").setup({
         config = function()
             vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI }}
         end,
+        enabled = true,
     },
     {
         -- status bar
@@ -107,6 +117,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/feline")
         end,
+        enabled = true,
     },
     {
         -- vim-test (a configurable test runner which adds commands like ,tt ,tn and ,tf)
@@ -114,6 +125,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/vim-test")
         end,
+        enabled = true,
     },
     {
         -- indent-blankline (add vertical lines to show indent matches easily)
@@ -121,6 +133,7 @@ require("lazy").setup({
         config = function()
             require("indent_blankline").setup()
         end,
+        enabled = true,
     },
     {
         -- LSP saga for code actions
@@ -129,6 +142,7 @@ require("lazy").setup({
         config = function()
             require("lspsaga").setup({})
         end,
+        enabled = true,
     },
     {
         -- gitsigns (add some git commands to navigate and handle changes)
@@ -142,6 +156,7 @@ require("lazy").setup({
             vim.keymap.set("n", "gp", ":Gitsigns preview_hunk<CR>")
             vim.keymap.set("n", "gb", ":Gitsigns blame_line<CR>")
         end,
+        enabled = true,
     },
     {
         -- nvim-lspconfig (allow us to install and manage language servers with configs)
@@ -156,6 +171,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/lspconfig")
         end,
+        enabled = true,
     },
     {
         -- nvim-cmp (a completion engine frontend of neovim, works closely with LSPs)
@@ -173,6 +189,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/cmp")
         end,
+        enabled = true,
     },
     {
         -- ale (enables linting on files that we specify, will probably replace with null-ls at some point)
@@ -180,6 +197,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/ale")
         end,
+        enabled = true,
     },
     {
         -- Rust tools
@@ -191,6 +209,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/rust")
         end,
+        enabled = true,
     },
     {
         -- treesitter (add meaning to source files we edit, this allows better highlighting)
@@ -199,12 +218,14 @@ require("lazy").setup({
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
         dependencies = {
-            "JoosepAlviste/nvim-ts-context-commentstring",
+            -- "JoosepAlviste/nvim-ts-context-commentstring",
+            "nvim-treesitter/playground",
             -- "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
             require("user.plugins.treesitter")
         end,
+        enabled = true,
     },
     {
         -- debugging
@@ -216,6 +237,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/debugging")
         end,
+        enabled = true,
     },
     {
         -- gitHub copilot - CTRL+SPACE to activate
@@ -229,6 +251,7 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         dependencies = {
             "nvim-lua/plenary.nvim"
-        }
+        },
+        enabled = true,
     }
 }, {})
