@@ -11,6 +11,7 @@ vim.g.mapleader = ","
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI }}
 
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wildignore:append({

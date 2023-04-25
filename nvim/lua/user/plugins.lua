@@ -114,9 +114,6 @@ require("lazy").setup({
     {
         -- vim wiki / add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
         "vimwiki/vimwiki",
-        config = function()
-            vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI }}
-        end,
         enabled = true,
     },
     {
