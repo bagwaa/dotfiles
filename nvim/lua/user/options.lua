@@ -6,8 +6,12 @@ vim.cmd([[
     set tabstop=4
 ]])
 
+-- map a leader key
+vim.g.mapleader = ","
+
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wildignore:append({
