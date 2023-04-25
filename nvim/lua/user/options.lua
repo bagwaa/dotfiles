@@ -53,3 +53,12 @@ vim.opt.confirm = true
 vim.opt.undofile = true
 vim.opt.backup = true
 vim.opt.backupdir:remove(".")
+
+-- highlight_yank (flash yanked area when yanking)
+vim.cmd([[
+    augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+    augroup END
+]])
+

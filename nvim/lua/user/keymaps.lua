@@ -24,7 +24,7 @@ vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 -- vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 
 -- open the file
-vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
+-- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
 
 -- disable arrow keys
 vim.keymap.set("n", "<Up>", "<Nop>")

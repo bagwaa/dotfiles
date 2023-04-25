@@ -6,7 +6,7 @@
 
 ### Neovim Plugin Install
 
-Inside neovim run `:PackerSync`, `:PackerCompile`, and `:PackerClean`
+Inside neovim run `:Lazy`
 
 ### Creating a test from a corresponding file
 
@@ -19,10 +19,6 @@ Inside neovim run `:PackerSync`, `:PackerCompile`, and `:PackerClean`
 
 - `,1` to toggle the sidebar with the current file focused
 - `,2` to collapse all open directories in the sidebar
-
-### Buffers
-
-- `[b and ]b` to move left and right through buffers
 
 ### Git
 
