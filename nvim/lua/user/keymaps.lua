@@ -10,8 +10,8 @@ vim.keymap.set("n", "<leader>2", ":NvimTreeCollapse<CR>")
 
 -- split mappings
 vim.keymap.set("n", "<Leader>v", ":vnew<CR>")
-vim.keymap.set("n", "<Leader>h", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
-vim.keymap.set("n", "<Leader>j", ':lua require("harpoon.mark").add_file()<CR>')
+vim.keymap.set("n", "<Leader><Space>", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
+vim.keymap.set("n", "<Leader>h", ':lua require("harpoon.mark").add_file()<CR>')
 vim.keymap.set("n", "<Leader>x", ":bd<CR>")
 
 -- use ctrl keys to navigate splits
