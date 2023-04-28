@@ -38,6 +38,7 @@ require("null-ls").setup({
             disabled_filetypes = { "NvimTree" },
         }),
         require("null-ls").builtins.diagnostics.jsonlint,
+        require("null-ls").builtins.formatting.trim_whitespace
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
