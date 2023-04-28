@@ -1,9 +1,13 @@
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 require("dapui").setup()
 
-vim.keymap.set("n", "<leader>dt", ":DapToggleBreakpoint<CR>")
-vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>")
-vim.keymap.set("n", "<leader>dd", ":lua require('dapui').toggle()<CR>")
+vim.keymap.set("n", "<F1>", ":DapToggleBreakpoint<CR>")
+vim.keymap.set("n", "<F2>", ":DapStepOver<CR>")
+vim.keymap.set("n", "<F3>", ":DapStepInto<CR>")
+vim.keymap.set("n", "<F4>", ":DapStepOut<CR>")
+vim.keymap.set("n", "<F5>", ":DapContinue<CR>")
+
+vim.keymap.set("n", "<F10>", ":lua require('dapui').toggle()<CR>")
 
 local dap, dapui = require("dap"), require("dapui")
 

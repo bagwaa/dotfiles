@@ -20,6 +20,12 @@ vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 
+-- use ctrl keys to navigate splits in terminal mode (useful for nvim-dap)
+vim.keymap.set("t", "<C-H>", "<C-\\><C-N><C-H>")
+vim.keymap.set("t", "<C-J>", "<C-\\><C-N><C-J>")
+vim.keymap.set("t", "<C-K>", "<C-\\><C-N><C-K>")
+vim.keymap.set("t", "<C-L>", "<C-\\><C-N><C-L>")
+
 -- use tab and shift tab to cycle through buffers
 -- vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 -- vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
