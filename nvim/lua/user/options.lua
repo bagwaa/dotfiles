@@ -54,6 +54,9 @@ vim.opt.undofile = true
 vim.opt.backup = true
 vim.opt.backupdir:remove(".")
 
+-- remove duplicate status bars when using things like DAP ui
+vim.api.nvim_set_option('laststatus', 3)
+
 -- highlight_yank (flash yanked area when yanking)
 vim.cmd([[
     augroup highlight_yank
@@ -61,4 +64,3 @@ vim.cmd([[
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
     augroup END
 ]])
-
