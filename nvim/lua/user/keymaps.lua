@@ -10,9 +10,11 @@ vim.keymap.set("n", "<leader>2", ":NvimTreeCollapse<CR>")
 
 -- split mappings
 vim.keymap.set("n", "<Leader>v", ":vnew<CR>")
+vim.keymap.set("n", "<Leader>x", ":bd<CR>")
+
+-- harpoon
 vim.keymap.set("n", "<Leader><Space>", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
 vim.keymap.set("n", "<Leader>h", ':lua require("harpoon.mark").add_file()<CR>')
-vim.keymap.set("n", "<Leader>x", ":bd<CR>")
 
 -- use ctrl keys to navigate splits
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
@@ -27,8 +29,8 @@ vim.keymap.set("t", "<C-K>", "<C-\\><C-N><C-K>")
 vim.keymap.set("t", "<C-L>", "<C-\\><C-N><C-L>")
 
 -- use tab and shift tab to cycle through buffers
--- vim.keymap.set("n", "<Tab>", ":bnext<CR>")
--- vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 
 -- open the file
 -- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")

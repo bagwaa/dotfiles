@@ -49,7 +49,7 @@ require("lazy").setup({
         version = "*",
         config = function()
             require("toggleterm").setup({
-                direction = "float",
+                direction = "horizontal",
             })
             vim.keymap.set("n", "<Leader>cc", ":ToggleTerm<CR>")
             vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
@@ -224,8 +224,8 @@ require("lazy").setup({
         end,
         dependencies = {
             -- "JoosepAlviste/nvim-ts-context-commentstring",
-            "nvim-treesitter/playground",
             -- "nvim-treesitter/nvim-treesitter-textobjects",
+            "nvim-treesitter/playground",
         },
         config = function()
             require("user.plugins.treesitter")
