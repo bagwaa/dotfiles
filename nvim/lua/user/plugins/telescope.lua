@@ -1,5 +1,25 @@
 local actions = require("telescope.actions")
+local colors = require("catppuccin.palettes").get_palette()
 
+local TelescopeColor = {
+	TelescopeMatching = { fg = colors.flamingo },
+	TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+
+	TelescopePromptPrefix = { bg = colors.surface0 },
+	TelescopePromptNormal = { bg = colors.surface0 },
+	TelescopeResultsNormal = { bg = colors.mantle },
+	TelescopePreviewNormal = { bg = colors.mantle },
+	TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+	TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+	TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+	TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+	TelescopeResultsTitle = { fg = colors.mantle },
+	TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+}
+
+for hl, col in pairs(TelescopeColor) do
+	vim.api.nvim_set_hl(0, hl, col)
+end
 -- some keymappings to open telescope
 vim.keymap.set("n", "<C-p>", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set("n", "<Leader>p", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
@@ -12,11 +32,12 @@ vim.keymap.set("n", "<Leader>ppp", [[<cmd>lua require('telescope.builtin').git_f
 vim.keymap.set("n", "<Leader>o", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
 vim.keymap.set("n", "<Leader>bb", [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set("n", "<Leader>ff", [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
+vim.keymap.set("n", "<Leader>l", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
 
 -- telescope configuration
 require("telescope").setup({
 	defaults = {
-		prompt_prefix = ">> ",
+		prompt_prefix = "🔎 ",
 		file_ignore_patterns = { "node_modules", ".git/" },
 		layout_strategy = "vertical",
 		layout_config = {
@@ -26,7 +47,9 @@ require("telescope").setup({
 				preview_height = 0.6,
 				preview_cutoff = 10,
 			},
+            prompt_position = 'top'
 		},
+        sorting_strategy = 'ascending',
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
