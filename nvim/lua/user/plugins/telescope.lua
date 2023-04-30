@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+
 local colors = require("catppuccin.palettes").get_palette()
 
 local TelescopeColor = {
@@ -20,6 +21,7 @@ local TelescopeColor = {
 for hl, col in pairs(TelescopeColor) do
 	vim.api.nvim_set_hl(0, hl, col)
 end
+
 -- some keymappings to open telescope
 vim.keymap.set("n", "<C-p>", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set("n", "<Leader>p", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
@@ -40,16 +42,16 @@ require("telescope").setup({
 		prompt_prefix = "🔎 ",
 		file_ignore_patterns = { "node_modules", ".git/" },
 		layout_strategy = "vertical",
+        sorting_strategy = "ascending",
 		layout_config = {
+            prompt_position = "top",
 			vertical = {
 				width = 0.9,
 				height = 0.9,
 				preview_height = 0.6,
 				preview_cutoff = 10,
 			},
-            prompt_position = 'top'
 		},
-        sorting_strategy = 'ascending',
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
@@ -92,8 +94,6 @@ require("telescope").setup({
 		lsp_definitions = {
 			fname_width = 800,
 			layout_config = { width = 0.5, height = 0.9 },
-		oldfiles = {
-            prompt_title = 'History',
 		},
 		lsp_implementations = {
 			fname_width = 800,
