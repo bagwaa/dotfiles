@@ -69,7 +69,7 @@ require("telescope").setup({
 	pickers = {
 		find_files = {
 			previewer = false,
-			hidden = true,
+			hidden = false,
 			layout_config = { width = 0.5, height = 0.9 },
 		},
 		oldfiles = {
@@ -80,7 +80,7 @@ require("telescope").setup({
 		},
 		git_files = {
 			previewer = false,
-			hidden = true,
+			hidden = false,
 			layout_config = { width = 0.5, height = 0.9 },
 		},
 		buffers = {
