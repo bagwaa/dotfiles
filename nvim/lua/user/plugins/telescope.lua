@@ -92,6 +92,8 @@ require("telescope").setup({
 		lsp_definitions = {
 			fname_width = 800,
 			layout_config = { width = 0.5, height = 0.9 },
+		oldfiles = {
+            prompt_title = 'History',
 		},
 		lsp_implementations = {
 			fname_width = 800,
