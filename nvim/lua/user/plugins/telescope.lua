@@ -73,6 +73,7 @@ require("telescope").setup({
 			layout_config = { width = 0.5, height = 0.9 },
 		},
 		oldfiles = {
+            prompt_title = "History",
 			previewer = false,
 			hidden = true,
 			layout_config = { width = 0.5, height = 0.9 },
