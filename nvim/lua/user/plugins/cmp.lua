@@ -49,6 +49,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "buffer" },
+        { name = "crates" },
 	},
 	experimental = {
 		ghost_text = true,
