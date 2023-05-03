@@ -31,7 +31,8 @@ Inside neovim run `:Lazy`
 
 ### Terminal
 
-- `,cc` to toggle a terminal window that floats
+- `,cf` to toggle a terminal window that floats
+- `,cc` to toggle a terminal window at the bottom of the screen
 
 ### Running Tests
 
