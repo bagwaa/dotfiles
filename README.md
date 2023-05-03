@@ -18,7 +18,6 @@ Inside neovim run `:Lazy`
 ### Sidebar
 
 - `,1` to toggle the sidebar with the current file focused
-- `,2` to collapse all open directories in the sidebar
 
 ### Git
 
@@ -57,9 +56,8 @@ Inside neovim run `:Lazy`
 ### Fuzzy Finding
 
 - `<Ctrl>+P` to find files
-- `<leader> p` to find files
-- `<leader> pp` to find files including vendor directories
-- `<leader> ppp` to find files only in the git repository
+- `<leader> pv` to find files including vendor directories
+- `<leader> pg` to find files only in the git repository
 - `<leader> o` to find recently opened files
 - `<leader> bb` to find a file in an open buffer
 - `<leader> ff` to find a file containing some text (ripgrep)

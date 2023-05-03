@@ -51,7 +51,8 @@ require("lazy").setup({
             require("toggleterm").setup({
                 direction = "horizontal",
             })
-            vim.keymap.set("n", "<Leader>cc", ":ToggleTerm<CR>")
+            vim.keymap.set("n", "<Leader>cc", ":ToggleTerm direction=horizontal<CR>")
+            vim.keymap.set("n", "<Leader>cf", ":ToggleTerm direction=float<CR>")
             vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
         end,
         enabled = true,
@@ -99,7 +100,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- nvim-tree (toggles the sidebar with ,1 and ,2 to collapse the content)
+        -- nvim-tree (toggles the sidebar with <leader>1)
         "kyazdani42/nvim-tree.lua",
         cmd = "NvimTreeFindFileToggle",
         keys = {
@@ -266,5 +267,13 @@ require("lazy").setup({
         config = function()
             require('crates').setup()
         end,
+        enabled = true,
+    },
+    {
+        "folke/which-key.nvim",
+        config = function()
+            require("user/plugins/whichkey")
+        end,
+        enabled = true,
     },
 }, {})

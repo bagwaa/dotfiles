@@ -24,13 +24,13 @@ end
 
 -- some keymappings to open telescope
 vim.keymap.set("n", "<C-p>", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-vim.keymap.set("n", "<Leader>p", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+vim.keymap.set("n", "<leader>pp", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set(
 	"n",
-	"<Leader>pp",
+	"<Leader>pv",
 	[[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (with vendors)'})<CR>]]
 )
-vim.keymap.set("n", "<Leader>ppp", [[<cmd>lua require('telescope.builtin').git_files()<CR>]])
+vim.keymap.set("n", "<Leader>pg", [[<cmd>lua require('telescope.builtin').git_files()<CR>]])
 vim.keymap.set("n", "<Leader>o", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
 vim.keymap.set("n", "<Leader>bb", [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set("n", "<Leader>ff", [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])

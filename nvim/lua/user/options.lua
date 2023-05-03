@@ -31,6 +31,8 @@ vim.opt.completeopt = "menuone,longest,preview"
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 
+vim.opt.timeoutlen=500
+
 vim.opt.signcolumn = "yes:1"
 
 vim.opt.spell = false
