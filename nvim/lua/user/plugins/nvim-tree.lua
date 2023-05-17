@@ -22,3 +22,5 @@ require("nvim-tree").setup({
 		timeout = 800, -- (in ms)
 	},
 })
+
+vim.keymap.set("n", "<leader>1", ":NvimTreeFindFileToggle<CR>")

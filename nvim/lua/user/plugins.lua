@@ -258,6 +258,10 @@ require("lazy").setup({
         dependencies = {
             "nvim-lua/plenary.nvim"
         },
+        config = function()
+            vim.keymap.set("n", "<Leader><Space>", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
+            vim.keymap.set("n", "<Leader><Space><Space>", ':lua require("harpoon.mark").add_file()<CR>')
+        end,
         enabled = true,
     },
     {

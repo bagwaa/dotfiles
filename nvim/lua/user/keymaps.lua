@@ -4,16 +4,9 @@ vim.keymap.set("i", "jj", "<Esc>")
 -- map <leader>s to write a file
 vim.keymap.set("n", "<leader>s", ":w<CR>")
 
--- file tree
-vim.keymap.set("n", "<leader>1", ":NvimTreeFindFileToggle<CR>")
-
 -- split mappings
 vim.keymap.set("n", "<Leader>v", ":vnew<CR>")
 vim.keymap.set("n", "<Leader>x", ":bd<CR>")
-
--- harpoon
-vim.keymap.set("n", "<Leader><Space>", ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
-vim.keymap.set("n", "<Leader><Space><Space>", ':lua require("harpoon.mark").add_file()<CR>')
 
 -- use ctrl keys to navigate splits
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
@@ -31,8 +24,11 @@ vim.keymap.set("t", "<C-L>", "<C-\\><C-N><C-L>")
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 
--- open the file
--- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
+-- remove annoying keymap typo
+vim.keymap.set('n', 'q:', ':q')
+
+-- dont copy replaced contents to clipboard when pasting in visual mode
+vim.keymap.set('v', 'p', '"_dP')
 
 -- disable arrow keys
 vim.keymap.set("n", "<Up>", "<Nop>")
@@ -49,11 +45,11 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- add , and ; to the end of lines really quickly with a double tap
--- vim.keymap.set("i", ";;", "<Esc>A;")
--- vim.keymap.set("i", ",,", "<Esc>A,")
+vim.keymap.set("i", ";;", "<Esc>A;")
+vim.keymap.set("i", ",,", "<Esc>A,")
 
 -- clear search highlighting in the buffer
 vim.keymap.set("n", "<Leader>k", ":nohlsearch<CR>")
 
--- toggle between test and src file or create a test if not available
--- vim.keymap.set("n", "<leader>e", ":A<CR>")
+-- open the file
+-- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")

@@ -40,7 +40,7 @@ wk.register({
         v = { "<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (with vendors)'})<CR>", "Files with Vendors" },
         g = { "<cmd>lua require('telescope.builtin').git_files()<CR>", "Files in Git" }
     },
-    ["<leader>e"] = {
+    ["<leader><leader>r"] = {
         name="Run",
         r = { ":RustRunnables<CR>", 'Rust Runnables' },
     },

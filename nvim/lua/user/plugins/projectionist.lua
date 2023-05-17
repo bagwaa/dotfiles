@@ -37,3 +37,5 @@ vim.g.projectionist_heuristics = {
 		},
 	},
 }
+
+vim.keymap.set("n", "<leader>e", ":A<CR>")

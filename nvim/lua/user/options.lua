@@ -1,19 +1,23 @@
-vim.cmd([[
-    set autoindent
-    set expandtab
-    set shiftwidth=4
-    set softtabstop=4
-    set tabstop=4
-]])
-
--- map a leader key
+-- leader
 vim.g.mapleader = ","
 
+-- indenting
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+
+-- wrapping
+vim.opt.wrap = false
+
+-- line numbers and relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } }}
 
+-- autocompletion in command mode
 vim.opt.wildmode = "longest:full,full"
+vim.opt.completeopt = "menuone,longest,preview"
 vim.opt.wildignore:append({
 	"*/.git/*",
 	"*/.hg/*",
@@ -26,38 +30,53 @@ vim.opt.wildignore:append({
 	"*/bower_components/*",
 })
 
-vim.opt.completeopt = "menuone,longest,preview"
-
+-- bad neovim user, surely? mostly for fixing scrolling
 vim.opt.mouse = "a"
+
+-- add more colours
 vim.opt.termguicolors = true
 
-vim.opt.timeoutlen=500
-
-vim.opt.signcolumn = "yes:1"
-
+-- no spell checker
 vim.opt.spell = false
+
+-- make searching less case insensitive
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- show trailing spaces and tabs and don't show tilde's at the bottom of files after the file has ended
 vim.opt.list = true
 vim.opt.listchars = { tab = "> ", trail = "." }
 vim.opt.fillchars:append({ eob = " " })
 
+-- how splits should split by default
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- create an offset to the top and bottom of the buffer before scrolling
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
--- vim.opt.clipboard = 'unnamedplus'
+-- nice message with options when quitting without saving
 vim.opt.confirm = true
 
+-- create undofile after quitting vim
 vim.opt.undofile = true
+
+-- backup files on edit (don't use the current directory)
 vim.opt.backup = true
 vim.opt.backupdir:remove(".")
 
 -- remove duplicate status bars when using things like DAP ui
 vim.api.nvim_set_option('laststatus', 3)
+
+-- set a custom timeout
+vim.opt.timeoutlen=500
+
+-- show the gutter for git
+vim.opt.signcolumn = "yes:1"
+
+-- use system clipboard
+-- vim.opt.clipboard = 'unnamedplus'
 
 -- highlight_yank (flash yanked area when yanking)
 vim.cmd([[
@@ -66,3 +85,6 @@ vim.cmd([[
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
     augroup END
 ]])
+
+-- vimwiki global config
+vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } }}
