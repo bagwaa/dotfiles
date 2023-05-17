@@ -22,18 +22,73 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- dracula (the best theme in the world)
-        "dracula/vim",
-        config = function()
-            vim.cmd("let g:dracula_colorterm = 0")
-            vim.cmd("colorscheme dracula")
-            vim.api.nvim_set_hl(0, "DraculaComment", { fg = "gray" })
-
-            vim.api.nvim_set_hl(0, "CursorLine", {
-                bg = "#30323E",
-            })
-        end,
+        -- vim-commentary (easier comments with "gc")
+        "tpope/vim-commentary",
+        enabled = true,
+    },
+    {
+        -- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
+        "tpope/vim-surround",
+        enabled = true,
+    },
+    {
+        -- vim-unimpaired, add mappings like [b and ]b
+        "tpope/vim-unimpaired",
+        enabled = true,
+    },
+    {
+        -- vim-sleuth, use the editorconfig in a project and set indentation
+        "tpope/vim-sleuth",
+        enabled = true,
+    },
+    {
+        -- vim-repeat, use the . key to repeat tpope commands like change surround
+        "tpope/vim-repeat",
+        enabled = true,
+    },
+    {
+        -- vim-polyglot (add some syntax highlights to all files)
+        "sheerun/vim-polyglot",
         enabled = false,
+    },
+    {
+        -- vim-lastplace (open a file wherre we left off last time it was open)
+        "farmergreg/vim-lastplace",
+        enabled = true,
+    },
+    {
+        -- vim wiki / add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
+        "vimwiki/vimwiki",
+        enabled = true,
+    },
+    {
+        -- add text objects for html attributes (vix and vax)
+        'whatyouhide/vim-textobj-xmlattr',
+        dependencies = 'kana/vim-textobj-user',
+        enabled = true
+    },
+    {
+        -- smoother scrolling with CTRL D and CTRL U
+        'karb94/neoscroll.nvim',
+        config = function()
+            require('neoscroll').setup()
+        end,
+        enabled = true
+    },
+    {
+        -- close the buffer without killing the split
+        'famiu/bufdelete.nvim',
+        config = function()
+            vim.keymap.set('n', '<leader>q', ':Bdelete<CR>')
+        end,
+    },
+    {
+        -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup()
+        end,
+        enabled = true,
     },
     {
         --  vim-peekaboo (show registers when yanking into different places)
@@ -54,34 +109,6 @@ require("lazy").setup({
             vim.keymap.set("n", "<Leader>cc", ":ToggleTerm direction=horizontal<CR>")
             vim.keymap.set("n", "<Leader>cf", ":ToggleTerm direction=float<CR>")
             vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
-        end,
-        enabled = true,
-    },
-    {
-        -- vim-commentary (easier comments with "gc")
-        "tpope/vim-commentary",
-        enabled = true,
-    },
-    {
-        -- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
-        "tpope/vim-surround",
-        enabled = true,
-    },
-    {
-        -- vim-polyglot (add some syntax highlights to all files)
-        "sheerun/vim-polyglot",
-        enabled = false,
-    },
-    {
-        -- vim-lastplace (open a file wherre we left off last time it was open)
-        "farmergreg/vim-lastplace",
-        enabled = true,
-    },
-    {
-        -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup()
         end,
         enabled = true,
     },
@@ -110,11 +137,6 @@ require("lazy").setup({
         config = function()
             require("user/plugins/nvim-tree")
         end,
-        enabled = true,
-    },
-    {
-        -- vim wiki / add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
-        "vimwiki/vimwiki",
         enabled = true,
     },
     {
