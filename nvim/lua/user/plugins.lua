@@ -91,6 +91,28 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        -- status bar
+        "feline-nvim/feline.nvim",
+        config = function()
+            require("user/plugins/feline")
+        end,
+        enabled = true,
+    },
+    {
+        -- nvim-telescope (fuzzy search front end)
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "nvim-telescope/telescope-live-grep-args.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
+        config = function()
+            require("user/plugins/telescope")
+        end,
+        enabled = true,
+    },
+    {
         --  vim-peekaboo (show registers when yanking into different places)
         "junegunn/vim-peekaboo",
         config = function()
@@ -113,20 +135,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- nvim-telescope (fuzzy search front end)
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons",
-            "nvim-telescope/telescope-live-grep-args.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-        },
-        config = function()
-            require("user/plugins/telescope")
-        end,
-        enabled = true,
-    },
-    {
         -- nvim-tree (toggles the sidebar with <leader>1)
         "kyazdani42/nvim-tree.lua",
         cmd = "NvimTreeFindFileToggle",
@@ -136,14 +144,6 @@ require("lazy").setup({
         dependencies = "kyazdani42/nvim-web-devicons",
         config = function()
             require("user/plugins/nvim-tree")
-        end,
-        enabled = true,
-    },
-    {
-        -- status bar
-        "feline-nvim/feline.nvim",
-        config = function()
-            require("user/plugins/feline")
         end,
         enabled = true,
     },

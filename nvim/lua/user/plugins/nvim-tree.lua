@@ -16,6 +16,14 @@ require("nvim-tree").setup({
 	},
 	renderer = {
 		group_empty = true,
+		icons = {
+			show = {
+				folder_arrow = false
+			}
+		},
+		indent_markers = {
+			enable = true
+		}
 	},
 	git = {
 		enable = false,
@@ -24,3 +32,5 @@ require("nvim-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>1", ":NvimTreeFindFileToggle<CR>")
+vim.api.nvim_set_hl(0, "NvimTreeNormal", {bg="#262626"})
+vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg="#404040"})
