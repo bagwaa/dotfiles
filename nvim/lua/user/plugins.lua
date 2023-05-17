@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        -- theme
         "catppuccin/nvim",
         name = "catppuccin",
         config = function()
@@ -238,8 +239,28 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        -- better code action menu
         "weilbith/nvim-code-action-menu",
         cmd = 'CodeActionMenu',
+        enabled = true,
+    },
+    {
+        -- rename in a popup window
+        'hood/popui.nvim',
+        dependencies= 'RishabhRD/popfix',
+        config = function()
+            vim.ui.select = require('popui.ui-overrider')
+            vim.ui.input = require('popui.input-overrider')
+        end,
+        enabled = true,
+    },
+    {
+        "glepnir/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+          require("lspsaga").setup({})
+        end,
+        enabled = false,
     },
     {
         -- Rust tools
@@ -287,7 +308,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/copilot")
         end,
-        enabled = false
+        enabled = true
     },
     {
         "ThePrimeagen/harpoon",
