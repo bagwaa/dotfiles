@@ -81,6 +81,7 @@ require("lazy").setup({
         config = function()
             vim.keymap.set('n', '<leader>q', ':Bdelete<CR>')
         end,
+        enabled = true
     },
     {
         -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
@@ -99,6 +100,23 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        "akinsho/bufferline.nvim",
+        dependencies = "kyazdani42/nvim-web-devicons",
+        after = "catppuccin/nvim",
+        config = function()
+            require("user.plugins.bufferline")
+        end,
+        enabled = true,
+    },
+    {
+        -- indent-blankline (add vertical lines to show indent matches easily)
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("indent_blankline").setup()
+        end,
+        enabled = true,
+    },
+    {
         -- nvim-telescope (fuzzy search front end)
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -109,6 +127,20 @@ require("lazy").setup({
         },
         config = function()
             require("user/plugins/telescope")
+        end,
+        enabled = true,
+    },
+    {
+        -- gitsigns (add some git commands to navigate and handle changes)
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup({ current_line_blame = true })
+            vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>")
+            vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>")
+            vim.keymap.set("n", "gs", ":Gitsigns stage_hunk<CR>")
+            vim.keymap.set("n", "gS", ":Gitsigns undo_stage_hunk<CR>")
+            vim.keymap.set("n", "gp", ":Gitsigns preview_hunk<CR>")
+            vim.keymap.set("n", "gb", ":Gitsigns blame_line<CR>")
         end,
         enabled = true,
     },
@@ -156,33 +188,11 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- indent-blankline (add vertical lines to show indent matches easily)
-        "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup()
-        end,
-        enabled = true,
-    },
-    {
         -- LSP saga for code actions
         "glepnir/lspsaga.nvim",
         branch = "main",
         config = function()
             require("lspsaga").setup({})
-        end,
-        enabled = true,
-    },
-    {
-        -- gitsigns (add some git commands to navigate and handle changes)
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup({ current_line_blame = true })
-            vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>")
-            vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>")
-            vim.keymap.set("n", "gs", ":Gitsigns stage_hunk<CR>")
-            vim.keymap.set("n", "gS", ":Gitsigns undo_stage_hunk<CR>")
-            vim.keymap.set("n", "gp", ":Gitsigns preview_hunk<CR>")
-            vim.keymap.set("n", "gb", ":Gitsigns blame_line<CR>")
         end,
         enabled = true,
     },
