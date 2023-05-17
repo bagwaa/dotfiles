@@ -17,7 +17,16 @@ require("lazy").setup({
         "catppuccin/nvim",
         name = "catppuccin",
         config = function()
-            vim.cmd("colorscheme catppuccin-mocha")
+            local catppuccin = require('catppuccin');
+
+            catppuccin.setup({
+                colorscheme = "catppuccin-mocha",
+                integrations = {
+                    treesitter = true
+                }
+            });
+
+            catppuccin.load();
         end,
         enabled = true,
     },
@@ -188,15 +197,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- LSP saga for code actions
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        config = function()
-            require("lspsaga").setup({})
-        end,
-        enabled = true,
-    },
-    {
         -- nvim-lspconfig (allow us to install and manage language servers with configs)
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -215,14 +215,14 @@ require("lazy").setup({
         -- nvim-cmp (a completion engine frontend of neovim, works closely with LSPs)
         "hrsh7th/nvim-cmp",
         dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lua",
-            "onsails/lspkind-nvim",
-            -- "hrsh7th/cmp-nvim-lsp-signature-help",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
+            "onsails/lspkind-nvim",
+            "hrsh7th/cmp-nvim-lua",
         },
         config = function()
             require("user/plugins/cmp")
@@ -236,6 +236,10 @@ require("lazy").setup({
             require("user/plugins/ale")
         end,
         enabled = true,
+    },
+    {
+        "weilbith/nvim-code-action-menu",
+        cmd = 'CodeActionMenu',
     },
     {
         -- Rust tools
@@ -256,9 +260,9 @@ require("lazy").setup({
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
         dependencies = {
-            -- "JoosepAlviste/nvim-ts-context-commentstring",
-            -- "nvim-treesitter/nvim-treesitter-textobjects",
-            "nvim-treesitter/playground",
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            -- "nvim-treesitter/playground",
         },
         config = function()
             require("user.plugins.treesitter")

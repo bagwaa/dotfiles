@@ -73,7 +73,7 @@ vim.api.nvim_set_option('laststatus', 3)
 vim.opt.timeoutlen=500
 
 -- show the gutter for git
-vim.opt.signcolumn = "yes:1"
+vim.opt.signcolumn = "yes:2"
 
 -- use system clipboard
 -- vim.opt.clipboard = 'unnamedplus'
