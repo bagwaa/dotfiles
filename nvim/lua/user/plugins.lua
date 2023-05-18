@@ -351,5 +351,13 @@ require("lazy").setup({
             vim.keymap.set('n', '<Leader>yn', ':PhpactorClassNew<CR>')
         end,
         enabled = true,
+    },
+    {
+        -- switch between tests and source quickly
+        'tpope/vim-projectionist',
+        dependencies = 'tpope/vim-dispatch',
+        config = function()
+            require('user/plugins/projectionist')
+        end,
     }
 }, {})

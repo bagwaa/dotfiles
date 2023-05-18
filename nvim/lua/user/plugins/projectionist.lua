@@ -8,18 +8,6 @@ vim.g.projectionist_heuristics = {
 			console = "php artisan tinker",
 			make = "npm run dev",
 		},
-		["app/Models/*.php"] = {
-			type = "model",
-		},
-		["app/Http/Controllers/*.php"] = {
-			type = "controller",
-		},
-		["routes/*.php"] = {
-			type = "route",
-		},
-		["database/migrations/*.php"] = {
-			type = "migration",
-		},
 		["app/*.php"] = {
 			type = "source",
 			alternate = {
@@ -34,6 +22,18 @@ vim.g.projectionist_heuristics = {
 		["tests/Unit/*Test.php"] = {
 			type = "test",
 			alternate = "app/{}.php",
+		},
+		["app/Models/*.php"] = {
+			type = "model",
+		},
+		["app/Http/Controllers/*.php"] = {
+			type = "controller",
+		},
+		["routes/*.php"] = {
+			type = "route",
+		},
+		["database/migrations/*.php"] = {
+			type = "migration",
 		},
 	},
 }

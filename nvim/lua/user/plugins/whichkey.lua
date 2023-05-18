@@ -21,6 +21,7 @@ wk.register({
     ["<leader>a"] = { ":CodeActionMenu<CR>", "Code Action" },
     ["<leader>r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     ["<leader>f"] = { ":lua vim.lsp.buf.format()<CR>", "Format Buffer" },
+    ["<leader>e"] = { ":A<CR>", "Alternate File" },
     ["<leader>w"] = {
         name = "Wiki",
         w = { ":VimwikiIndex<CR>", "Wiki Index" }
