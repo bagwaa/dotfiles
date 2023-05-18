@@ -28,6 +28,9 @@ require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
 -- Tailwind CSS
 require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
 
+-- Lua
+require("lspconfig").lua_ls.setup({ capabilities = capabilities })
+
 -- Vue, Javascript, Typescript
 require("lspconfig").volar.setup({
     capabilities = capabilities,
