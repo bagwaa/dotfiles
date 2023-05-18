@@ -22,33 +22,41 @@ wk.register({
     ["<leader>r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     ["<leader>f"] = { ":lua vim.lsp.buf.format()<CR>", "Format Buffer" },
     ["<leader>w"] = {
-        name="Wiki",
+        name = "Wiki",
         w = { ":VimwikiIndex<CR>", "Wiki Index" }
     },
     ["<leader>c"] = {
-        name="Console",
+        name = "Console",
         c = { ":ToggleTerm<CR>", "Open Console Horizontal" },
         f = { ":ToggleTerm direction=float<CR>", "Open Console in Float" },
     },
     ["<leader>b"] = {
-        name="Buffers",
+        name = "Buffers",
         b = { ":Telescope buffers<CR>", "List Buffers" },
     },
     ["<leader>p"] = {
-        name="Files",
+        name = "Files",
         p = { "<cmd>lua require('telescope.builtin').find_files()<CR>", 'Files' },
-        v = { "<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (with vendors)'})<CR>", "Files with Vendors" },
-        g = { "<cmd>lua require('telescope.builtin').git_files()<CR>", "Files in Git" }
+        v = {
+            "<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files (with vendors)'})<CR>",
+            "Files with Vendors" },
+        g = { "<cmd>lua require('telescope.builtin').git_files()<CR>", "Files in Git" },
+    },
+    ["<leader>y"] = {
+        name = "PHP Tools (Phpactor)",
+        m = { ":PhpactorContextMenu<CR>", "PHP Context Menu" },
+        n = { ":PhpactorClassNew<CR>", "PHP New File" },
     },
     ["<leader><leader>r"] = {
-        name="Run",
+        name = "Run",
         r = { ":RustRunnables<CR>", 'Rust Runnables' },
     },
     ["<leader>t"] = {
-        name="VimTest",
+        name = "VimTest",
     },
     ["<leader>k"] = { ":nohlsearch<CR>", "Clear Search" },
     ["<leader>s"] = { ":w<CR>", "Save" },
     ["<leader>v"] = { ":vsp<CR>", "Vertical Split" },
     ["<leader>x"] = { ":bd<CR>", "Close" },
+    ["<leader>q"] = { ":Bdelete<CR>", "Close (keep split)" },
 })

@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -247,7 +248,7 @@ require("lazy").setup({
     {
         -- rename in a popup window
         'hood/popui.nvim',
-        dependencies= 'RishabhRD/popfix',
+        dependencies = 'RishabhRD/popfix',
         config = function()
             vim.ui.select = require('popui.ui-overrider')
             vim.ui.input = require('popui.input-overrider')
@@ -258,7 +259,7 @@ require("lazy").setup({
         "glepnir/lspsaga.nvim",
         event = "LspAttach",
         config = function()
-          require("lspsaga").setup({})
+            require("lspsaga").setup({})
         end,
         enabled = false,
     },
@@ -311,6 +312,7 @@ require("lazy").setup({
         enabled = true
     },
     {
+        -- jump around with prime
         "ThePrimeagen/harpoon",
         dependencies = {
             "nvim-lua/plenary.nvim"
@@ -322,6 +324,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        -- more info about crate dependencies
         "saecki/crates.nvim",
         version = 'v0.3.0',
         dependencies = { 'nvim-lua/plenary.nvim' },
@@ -331,10 +334,22 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        -- show hotkeys in a popup
         "folke/which-key.nvim",
         config = function()
             require("user/plugins/whichkey")
         end,
         enabled = true,
     },
+    {
+        -- php stuff to allow us todo IDE things
+        "phpactor/phpactor",
+        ft = { "php" },
+        build = "composer install --no-dev --optimize-autoloader",
+        config = function()
+            vim.keymap.set('n', '<Leader>ym', ':PhpactorContextMenu<CR>')
+            vim.keymap.set('n', '<Leader>yn', ':PhpactorClassNew<CR>')
+        end,
+        enabled = true,
+    }
 }, {})
