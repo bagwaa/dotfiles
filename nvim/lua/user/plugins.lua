@@ -349,6 +349,7 @@ require("lazy").setup({
         config = function()
             vim.keymap.set('n', '<Leader>ym', ':PhpactorContextMenu<CR>')
             vim.keymap.set('n', '<Leader>yn', ':PhpactorClassNew<CR>')
+            vim.keymap.set('v', '<Leader>yxm', ':PhpactorExtractMethod<CR>')
         end,
         enabled = true,
     },

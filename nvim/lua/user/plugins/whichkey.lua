@@ -46,7 +46,7 @@ wk.register({
     ["<leader>y"] = {
         name = "PHP Tools (Phpactor)",
         m = { ":PhpactorContextMenu<CR>", "PHP Context Menu" },
-        n = { ":PhpactorClassNew<CR>", "PHP New File" },
+        n = { ":PhpactorClassNew<CR>", "New File" },
     },
     ["<leader><leader>r"] = {
         name = "Run",
