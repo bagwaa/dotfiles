@@ -360,6 +360,7 @@ require("lazy").setup({
         config = function()
             require('user/plugins/projectionist')
         end,
+        enabled = true,
     },
     {
         "Bryley/neoai.nvim",
@@ -391,5 +392,15 @@ require("lazy").setup({
 
             })
         end,
+        enabled = true,
+    },
+    {
+        "themaxmarchuk/tailwindcss-colors.nvim",
+        config = function()
+            vim.keymap.set('n', '<leader>j', ':TailwindColorsToggle<CR>')
+            -- pass config options here (or nothing to use defaults)
+            require("tailwindcss-colors").setup()
+        end,
+        enabled = true,
     }
 }, {})
