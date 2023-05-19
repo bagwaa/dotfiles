@@ -26,7 +26,12 @@ require("lspconfig").pyright.setup({ capabilities = capabilities })
 require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
 
 -- Tailwind CSS
-require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
+require("lspconfig").tailwindcss.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        require("tailwindcss-colors").buf_attach(bufnr);
+    end,
+})
 
 -- Lua
 require("lspconfig").lua_ls.setup({ capabilities = capabilities })

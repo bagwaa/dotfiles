@@ -397,7 +397,6 @@ require("lazy").setup({
     {
         "themaxmarchuk/tailwindcss-colors.nvim",
         config = function()
-            vim.keymap.set('n', '<leader>j', ':TailwindColorsToggle<CR>')
             -- pass config options here (or nothing to use defaults)
             require("tailwindcss-colors").setup()
         end,
