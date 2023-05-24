@@ -401,5 +401,16 @@ require("lazy").setup({
             require("tailwindcss-colors").setup()
         end,
         enabled = true,
+    },
+    {
+        "takac/vim-hardtime",
+        config = function()
+            -- enabled on all buffers in options.lua
+            vim.g.hardtime_timeout = 1000
+            vim.g.hardtime_showmsg = 0
+            vim.g.hardtime_maxcount = 8
+        end,
+        lazy = false,
+        enabled = true,
     }
 }, {})

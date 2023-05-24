@@ -70,7 +70,7 @@ vim.opt.backupdir:remove(".")
 vim.api.nvim_set_option('laststatus', 3)
 
 -- set a custom timeout
-vim.opt.timeoutlen=500
+vim.opt.timeoutlen = 500
 
 -- show the gutter for git
 vim.opt.signcolumn = "yes:2"
@@ -87,4 +87,7 @@ vim.cmd([[
 ]])
 
 -- vimwiki global config
-vim.g.vimwiki_list = {{ path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } }}
+vim.g.vimwiki_list = { { path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } } }
+
+-- hardtime on every buffer
+vim.g.hardtime_default_on = 1
