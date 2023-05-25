@@ -1,6 +1,8 @@
 require("neo-tree").setup({
 	source_selector = {
-		winbar = true
+		winbar = true,
+		content_layout = "center",
+		tabs_layout = "equal",
 	},
 	window = {
 		width = 40,
@@ -58,3 +60,6 @@ vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticS
 vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+
+vim.api.nvim_set_hl(0, "NeoTreeTabInactive", { bg = "#191725", fg = "#4C4F61" })
+vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive", { bg = "#191725", fg = "#191725" })

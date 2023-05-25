@@ -22,7 +22,6 @@ require("lazy").setup({
             local catppuccin = require('catppuccin');
 
             catppuccin.setup({
-                colorscheme = "catppuccin-mocha",
                 integrations = {
                     treesitter = true
                 }
