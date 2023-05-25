@@ -12,7 +12,7 @@ local wk = require("which-key")
 
 wk.register({
     ["<leader>d"] = "which_key_ignore",
-    ["<leader>1"] = { "<cmd>NvimTreeFindFileToggle<CR>", "File Tree" },
+    ["<leader>1"] = { "<cmd>Neotree reveal toggle<CR>", "File Tree" },
     ["<leader>ff"] = { "<cmd>Telescope live_grep_args<CR>", "Find Text in Files" },
     ["<leader>l"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols" },
     ["<leader>o"] = { "<cmd>Telescope oldfiles<CR>", "History" },

@@ -112,7 +112,8 @@ require("lazy").setup({
     },
     {
         "akinsho/bufferline.nvim",
-        dependencies = "kyazdani42/nvim-web-devicons",
+        -- dependencies = "kyazdani42/nvim-web-devicons",
+        dependencies = "nvim-tree/nvim-web-devicons",
         after = "catppuccin/nvim",
         config = function()
             require("user.plugins.bufferline")
@@ -132,7 +133,8 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons",
+            -- "kyazdani42/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope-live-grep-args.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
@@ -174,19 +176,6 @@ require("lazy").setup({
             vim.keymap.set("n", "<Leader>cc", ":ToggleTerm direction=horizontal<CR>")
             vim.keymap.set("n", "<Leader>cf", ":ToggleTerm direction=float<CR>")
             vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
-        end,
-        enabled = true,
-    },
-    {
-        -- nvim-tree (toggles the sidebar with <leader>1)
-        "kyazdani42/nvim-tree.lua",
-        cmd = "NvimTreeFindFileToggle",
-        keys = {
-            { "<leader>1", "<cmd>NvimTreeFindFileToggle<CR>", desc = "NvimTreeFindFileToggle" },
-        },
-        dependencies = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("user/plugins/nvim-tree")
         end,
         enabled = true,
     },
@@ -412,5 +401,31 @@ require("lazy").setup({
         end,
         lazy = false,
         enabled = true,
-    }
+    },
+    {
+        "nvim-tree/nvim-web-devicons",
+        lazy = false,
+        enabled = true,
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            require('user/plugins/neo-tree')
+        end,
+        enabled = true,
+    },
+    {
+        dir = "/Users/richard/Code/neovim/plugins/tinkerbox",
+        config = function()
+        end,
+        lazy = false,
+        enabled = true,
+    },
+
 }, {})

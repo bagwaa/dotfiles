@@ -54,5 +54,8 @@ vim.keymap.set("n", "<Leader>k", ":nohlsearch<CR>")
 -- save and source the current file (neovim development)
 vim.keymap.set("n", "<Leader><Leader>x", ":w<CR>:source %<CR>")
 
+-- open the file explorer
+vim.keymap.set("n", "<leader>1", ":Neotree reveal toggle<CR>")
+
 -- open the file
 -- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
