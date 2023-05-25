@@ -15,6 +15,7 @@ wk.register({
     ["<leader>1"] = { "<cmd>Neotree reveal toggle right<CR>", "File Tree" },
     ["<leader>ff"] = { "<cmd>Telescope live_grep_args<CR>", "Find Text in Files" },
     ["<leader>l"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols" },
+    ["<leader>g"] = { "<cmd>lua _lazygit_toggle()<CR>", "Lazygit" },
     ["<leader>o"] = { "<cmd>Telescope oldfiles<CR>", "History" },
     ["<leader><space>"] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Harpoon Menu" },
     ["<leader><space><space>"] = { ':lua require("harpoon.mark").add_file()<CR>', "Harpoon a File" },
@@ -51,6 +52,9 @@ wk.register({
     ["<leader><leader>r"] = {
         name = "Run",
         r = { ":RustRunnables<CR>", 'Rust Runnables' },
+    },
+    ["<leader><leader>x"] = {
+        name = "Save and Source",
     },
     ["<leader>t"] = {
         name = "VimTest",
