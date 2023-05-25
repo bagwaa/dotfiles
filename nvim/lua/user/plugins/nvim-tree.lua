@@ -15,7 +15,7 @@ require("nvim-tree").setup({
 		},
 	},
 	renderer = {
-		group_empty = true,
+		group_empty = false,
 		icons = {
 			show = {
 				folder_arrow = false
@@ -32,5 +32,5 @@ require("nvim-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>1", ":NvimTreeFindFileToggle<CR>")
-vim.api.nvim_set_hl(0, "NvimTreeNormal", {bg="#1e1e2e"})
-vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg="#404040"})
+vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = "#404040" })
