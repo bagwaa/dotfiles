@@ -420,6 +420,13 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        "ggandor/leap.nvim",
+        enabled = true,
+        config = function()
+            require('leap').add_default_mappings()
+        end,
+    },
+    {
         dir = "/Users/richard/Code/neovim/plugins/tinkerbox",
         config = function()
         end,
