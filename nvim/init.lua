@@ -1,6 +1,7 @@
 require("user/options")
 require("user/plugins")
 require("user/keymaps")
+require("user/globals")
 
 -- open telescope on starting neovim
 vim.api.nvim_create_autocmd("VimEnter", {
