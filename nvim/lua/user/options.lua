@@ -53,8 +53,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- create an offset to the top and bottom of the buffer before scrolling
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 
@@ -92,5 +90,4 @@ vim.cmd([[
 vim.g.vimwiki_list = { { path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } } }
 
 -- hardtime on every buffer
-vim.g.hardtime_default_on = 1
 vim.g.hardtime_default_on = 0
