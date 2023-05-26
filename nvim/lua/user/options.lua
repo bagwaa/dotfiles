@@ -93,3 +93,4 @@ vim.g.vimwiki_list = { { path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rus
 
 -- hardtime on every buffer
 vim.g.hardtime_default_on = 1
+vim.g.hardtime_default_on = 0
