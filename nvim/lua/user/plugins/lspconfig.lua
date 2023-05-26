@@ -28,7 +28,7 @@ require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
 -- Tailwind CSS
 require("lspconfig").tailwindcss.setup({
     capabilities = capabilities,
-    on_attach = function(client, bufnr)
+    on_attach = function(_, bufnr)
         require("tailwindcss-colors").buf_attach(bufnr);
     end,
 })

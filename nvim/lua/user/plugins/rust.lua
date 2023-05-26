@@ -19,8 +19,7 @@ vim.keymap.set("n", "<leader><leader>r", ":RustRunnables<CR>")
 
 -- Rust Tools Configutation
 local opts = {
-	tools = { -- rust-tools options
-
+	tools = {
 		-- how to execute terminal commands
 		-- options right now: termopen / quickfix
 		executor = require("rust-tools.executors").termopen,
@@ -71,7 +70,6 @@ local opts = {
 
 		-- options same as lsp hover / vim.lsp.util.open_floating_preview()
 		hover_actions = {
-
 			-- the border that is used for the hover window
 			-- see vim.api.nvim_open_win()
 			border = {
