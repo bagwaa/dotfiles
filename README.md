@@ -1,4 +1,28 @@
-# My personal neovim configuration
+# My personal configuration
+
+# Software Requirements
+
+1. Neovim (from neovim.io)
+2. Tmux (`brew install tmux`)
+3. Yabai (`brew install koekeishiya/formulae/yabai`)
+4. Skhd (`brew install koekeishiya/formulae/skhd`)
+5. Ripgrep / FZF
+
+### Window Manager Setup
+
+I use this exact configuration https://www.josean.com/posts/yabai-setup (video format: https://www.youtube.com/watch?v=k94qImbFKWE) however a few notes about restarting these services using brew.
+
+`brew install koekeishiya/formulae/yabai`
+`brew install koekeishiya/formulae/skhd`
+
+instead of
+    `brew services start yabai`
+    `brew services restart yabai`
+use
+    `yabai --start-service`
+    `yabai --restart-service`
+
+Same with SKHD.
 
 ### TMUX Plugin install
 
