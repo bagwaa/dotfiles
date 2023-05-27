@@ -10,6 +10,16 @@
 
 ### Window Manager Setup
 
+#### Configure some OSX Settings for yabai
+
+    * Open Several Desktops (~7) on Your Machine
+    * Go To Keyboard Settings > Shortcuts > Mission Control
+    * Expand Mission Control and Turn On Shortcuts for Switching Spaces 1-7 with "Ctrl + # Of Space"
+    * Go to System Settings > Accessibility > Display
+    * Turn On Reduce Motion
+    * Go To System Settings > Desktop & Dock > Mission Control
+    * Turn off "Automatically Rearrange Spaces Based On Most Recent Use"
+
 I use this exact configuration https://www.josean.com/posts/yabai-setup (video format: https://www.youtube.com/watch?v=k94qImbFKWE) however a few notes about restarting these services using brew.
 
 `brew install koekeishiya/formulae/yabai`
