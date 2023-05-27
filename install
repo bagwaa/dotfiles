@@ -14,3 +14,8 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 rm -fr $HOME/.config/phpactor
 ln -s $DOTFILES/phpactor $HOME/.config/phpactor
 
+rm -fr $HOME/.config/yabai
+ln -s $DOTFILES/yabai $HOME/.config/yabai
+
+rm -fr $HOME/.config/skhd
+ln -s $DOTFILES/skhd $HOME/.config/skhd
