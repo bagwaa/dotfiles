@@ -399,7 +399,7 @@ require("lazy").setup({
             vim.g.hardtime_maxcount = 8
         end,
         lazy = false,
-        enabled = true,
+        enabled = false,
     },
     {
         "nvim-tree/nvim-web-devicons",

@@ -90,4 +90,4 @@ vim.cmd([[
 vim.g.vimwiki_list = { { path = vim.env.VIMWIKI, nested_syntaxes = { rust = 'rust' } } }
 
 -- hardtime on every buffer
-vim.g.hardtime_default_on = 0
+vim.g.hardtime_default_on = 1
