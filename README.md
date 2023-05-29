@@ -38,6 +38,18 @@ Same with SKHD.
 
 `<CTRL> A <SHIFT> I`
 
+#### Using Tmux
+
+To create a session type `tmux` in the terminal.
+To disconnect from a session run `<CTRL> A D`
+To start a whole new session for another tmux session (maybe for another project) run `tmux` again
+To swtich quickly between sessions run `<CTRL> A E` to pick which session you want to switch to
+To rename a session to something useful instead of `1` or `2` etc then run `<CTRL> A $` and type the name you want to use
+
+Within each session we can create multiple windows, to create a new window run `<CTRL> A` and then `C`
+To rename a window run `<CTRL> A ,` and type the name you want to use
+To switch windows run `<CTRL> A` and then `N` or `P` to move to the next or previous window or just type the number of the window you want to switch to
+
 ### Neovim Plugin Install
 
 Inside neovim run `:Lazy`
