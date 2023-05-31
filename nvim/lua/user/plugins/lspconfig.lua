@@ -25,6 +25,23 @@ require("lspconfig").pyright.setup({ capabilities = capabilities })
 -- Rust
 require("lspconfig").rust_analyzer.setup({ capabilities = capabilities })
 
+-- Go
+require("lspconfig").gopls.setup({
+    capabilities = capabilities,
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = require("lspconfig/util").root_pattern("go.mod", ".git", "go.mod"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            },
+        },
+    },
+})
+
 -- Tailwind CSS
 require("lspconfig").tailwindcss.setup({
     capabilities = capabilities,
@@ -74,6 +91,8 @@ require("null-ls").setup({
         require("null-ls").builtins.diagnostics.jsonlint,
         require("null-ls").builtins.formatting.trim_whitespace,
         require("null-ls").builtins.formatting.prettierd,
+        require("null-ls").builtins.formatting.gofmt,
+        require("null-ls").builtins.formatting.goimports,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
