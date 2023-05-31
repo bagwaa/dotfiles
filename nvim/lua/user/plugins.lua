@@ -427,6 +427,17 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        "olexsmir/gopher.nvim",
+        ft = { "go" },
+        config = function(_, opts)
+            require('gopher').setup(opts)
+        end,
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
+        end,
+
+    },
+    {
         dir = "/Users/richard/Code/neovim/plugins/tinkerbox",
         config = function()
         end,
