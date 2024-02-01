@@ -24,6 +24,7 @@ vim.opt.wildignore:append({
 	"*/.svn/*",
 	"*/.idea/*",
 	"*/vendor/*",
+	"*/vendor_local/*",
 	"*/storage/*",
 	"*/cache/*",
 	"*/node_modules/*",

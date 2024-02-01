@@ -3,9 +3,14 @@ require("neo-tree").setup({
 		winbar = true,
 		content_layout = "center",
 		tabs_layout = "equal",
+		sources = {
+			{ source = "filesystem", display_name = " 󰉓 Files " },
+			{ source = "buffers", display_name = " Buffers" },
+			{ source = "git_status", display_name = " 󰊢 Git " },
+		},
 	},
 	window = {
-		width = 40,
+		width = 60,
 		position = "left"
 	},
 	filesystem = {

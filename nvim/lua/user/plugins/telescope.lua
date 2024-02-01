@@ -24,7 +24,7 @@ end
 require("telescope").setup({
 	defaults = {
 		prompt_prefix = "🔎 ",
-		file_ignore_patterns = { "node_modules", ".git/" },
+		file_ignore_patterns = { "node_modules", ".git/", "vendor_local" },
 		layout_strategy = "vertical",
 		sorting_strategy = "ascending",
 		layout_config = {
@@ -101,7 +101,7 @@ require("telescope").load_extension("live_grep_args")
 vim.keymap.set("n", "<C-p>", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set("n", "<leader>pp", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set("n", "<Leader>pg", [[<cmd>lua require('telescope.builtin').git_files()<CR>]])
-vim.keymap.set("n", "<Leader>o", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+vim.keymap.set("n", "<Leader>fr", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
 vim.keymap.set("n", "<Leader>bb", [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set("n", "<Leader>ff", [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
 vim.keymap.set("n", "<Leader>l", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])

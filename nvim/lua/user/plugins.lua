@@ -47,19 +47,9 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- vim-sleuth, use the editorconfig in a project and set indentation
-        "tpope/vim-sleuth",
-        enabled = true,
-    },
-    {
         -- vim-repeat, use the . key to repeat tpope commands like change surround
         "tpope/vim-repeat",
         enabled = true,
-    },
-    {
-        -- vim-polyglot (add some syntax highlights to all files)
-        "sheerun/vim-polyglot",
-        enabled = false,
     },
     {
         -- vim-lastplace (open a file wherre we left off last time it was open)
@@ -67,15 +57,10 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- vim wiki / add export VIMWIKI="/path/to/Dropbox/Vimwiki" to .zshrc
-        "vimwiki/vimwiki",
-        enabled = true,
-    },
-    {
         -- add text objects for html attributes (vix and vax)
         'whatyouhide/vim-textobj-xmlattr',
         dependencies = 'kana/vim-textobj-user',
-        enabled = true
+        enabled = true,
     },
     {
         -- smoother scrolling with CTRL D and CTRL U
@@ -83,7 +68,7 @@ require("lazy").setup({
         config = function()
             require('neoscroll').setup()
         end,
-        enabled = true
+        enabled = true,
     },
     {
         -- close the buffer without killing the split
@@ -91,7 +76,7 @@ require("lazy").setup({
         config = function()
             vim.keymap.set('n', '<leader>q', ':Bdelete<CR>')
         end,
-        enabled = true
+        enabled = true,
     },
     {
         -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
@@ -123,7 +108,9 @@ require("lazy").setup({
         -- indent-blankline (add vertical lines to show indent matches easily)
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("indent_blankline").setup()
+            require("ibl").setup({
+                scope = { enabled = false },
+            })
         end,
         enabled = true,
     },
@@ -132,10 +119,9 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            -- "kyazdani42/nvim-web-devicons",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
             "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope-live-grep-args.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         config = function()
             require("user/plugins/telescope")
@@ -187,14 +173,21 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        "williamboman/mason.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
+        config = function()
+            require("user/plugins/mason")
+        end,
+        enabled = true,
+    },
+    {
         -- nvim-lspconfig (allow us to install and manage language servers with configs)
         "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "b0o/schemastore.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
-            "jayp0521/mason-null-ls.nvim",
+            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             require("user/plugins/lspconfig")
@@ -205,14 +198,11 @@ require("lazy").setup({
         -- nvim-cmp (a completion engine frontend of neovim, works closely with LSPs)
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lsp-signature-help",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
-            "onsails/lspkind-nvim",
-            "hrsh7th/cmp-nvim-lua",
+            "rafamadriz/friendly-snippets",
         },
         config = function()
             require("user/plugins/cmp")
@@ -220,47 +210,8 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- ale (enables linting on files that we specify, will probably replace with null-ls at some point)
-        "dense-analysis/ale",
-        config = function()
-            require("user/plugins/ale")
-        end,
-        enabled = true,
-    },
-    {
-        -- better code action menu
-        "weilbith/nvim-code-action-menu",
-        cmd = 'CodeActionMenu',
-        enabled = true,
-    },
-    {
-        -- rename in a popup window
-        'hood/popui.nvim',
-        dependencies = 'RishabhRD/popfix',
-        config = function()
-            vim.ui.select = require('popui.ui-overrider')
-            vim.ui.input = require('popui.input-overrider')
-        end,
-        enabled = true,
-    },
-    {
-        "glepnir/lspsaga.nvim",
-        event = "LspAttach",
-        config = function()
-            require("lspsaga").setup({})
-        end,
-        enabled = false,
-    },
-    {
-        -- Rust tools
-        "simrat39/rust-tools.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-lua/popup.nvim",
-        },
-        config = function()
-            require("user/plugins/rust")
-        end,
+        -- nice popups menu for selections and text boxes
+        "stevearc/dressing.nvim",
         enabled = true,
     },
     {
@@ -270,7 +221,6 @@ require("lazy").setup({
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
         dependencies = {
-            "JoosepAlviste/nvim-ts-context-commentstring",
             "nvim-treesitter/nvim-treesitter-textobjects",
             -- "nvim-treesitter/playground",
         },
@@ -289,7 +239,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/debugging")
         end,
-        enabled = true,
+        enabled = false,
     },
     {
         -- gitHub copilot - CTRL+SPACE to activate
@@ -297,7 +247,7 @@ require("lazy").setup({
         config = function()
             require("user/plugins/copilot")
         end,
-        enabled = true
+        enabled = true,
     },
     {
         -- jump around with prime
@@ -312,41 +262,10 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- more info about crate dependencies
-        "saecki/crates.nvim",
-        version = 'v0.3.0',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function()
-            require('crates').setup()
-        end,
-        enabled = true,
-    },
-    {
         -- show hotkeys in a popup
         "folke/which-key.nvim",
         config = function()
             require("user/plugins/whichkey")
-        end,
-        enabled = true,
-    },
-    {
-        -- php stuff to allow us todo IDE things
-        "phpactor/phpactor",
-        ft = { "php" },
-        build = "composer install --no-dev --optimize-autoloader",
-        config = function()
-            vim.keymap.set('n', '<Leader>ym', ':PhpactorContextMenu<CR>')
-            vim.keymap.set('n', '<Leader>yn', ':PhpactorClassNew<CR>')
-            vim.keymap.set('v', '<Leader>yxm', ':PhpactorExtractMethod<CR>')
-        end,
-        enabled = true,
-    },
-    {
-        -- switch between tests and source quickly
-        'tpope/vim-projectionist',
-        dependencies = 'tpope/vim-dispatch',
-        config = function()
-            require('user/plugins/projectionist')
         end,
         enabled = true,
     },
@@ -383,30 +302,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        "themaxmarchuk/tailwindcss-colors.nvim",
-        config = function()
-            -- pass config options here (or nothing to use defaults)
-            require("tailwindcss-colors").setup()
-        end,
-        enabled = true,
-    },
-    {
-        "takac/vim-hardtime",
-        config = function()
-            -- enabled on all buffers in options.lua
-            vim.g.hardtime_timeout = 1000
-            vim.g.hardtime_showmsg = 0
-            vim.g.hardtime_maxcount = 8
-        end,
-        lazy = false,
-        enabled = false,
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
-        lazy = false,
-        enabled = true,
-    },
-    {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         dependencies = {
@@ -420,29 +315,18 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        "ggandor/leap.nvim",
+        "jwalton512/vim-blade",
         config = function()
-            require('leap').add_default_mappings()
         end,
         enabled = true,
     },
     {
-        "olexsmir/gopher.nvim",
-        ft = { "go" },
-        config = function(_, opts)
-            require('gopher').setup(opts)
-        end,
-        build = function()
-            vim.cmd [[silent! GoInstallDeps]]
-        end,
-
-    },
-    {
-        dir = "/Users/richard/Code/neovim/plugins/tinkerbox",
+        'mfussenegger/nvim-lint',
         config = function()
+            require('lint').linters_by_ft = {
+                php = { 'php' },
+            }
         end,
-        lazy = false,
         enabled = true,
-    },
-
+    }
 }, {})

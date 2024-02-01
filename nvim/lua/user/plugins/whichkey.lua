@@ -19,7 +19,7 @@ wk.register({
     ["<leader>o"] = { "<cmd>Telescope oldfiles<CR>", "History" },
     ["<leader><space>"] = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Harpoon Menu" },
     ["<leader><space><space>"] = { ':lua require("harpoon.mark").add_file()<CR>', "Harpoon a File" },
-    ["<leader>a"] = { ":CodeActionMenu<CR>", "Code Action" },
+    ["<leader>a"] = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" },
     ["<leader>r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     ["<leader>f"] = { ":lua vim.lsp.buf.format()<CR>", "Format Buffer" },
     ["<leader>e"] = { ":A<CR>", "Alternate File" },
