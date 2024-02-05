@@ -10,14 +10,9 @@ local on_attach = function(client, bufnr)
     -- auto formatting on save
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 15000 })
-            end,
-        })
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-            callback = function()
-                require("lint").try_lint();
+            pattern = "*",
+            callback = function(args)
+                require("conform").format({ bufnr = args.buf })
             end,
         })
     end

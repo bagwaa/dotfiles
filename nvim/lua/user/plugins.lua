@@ -321,11 +321,9 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        'mfussenegger/nvim-lint',
+        'stevearc/conform.nvim',
         config = function()
-            require('lint').linters_by_ft = {
-                php = { 'php' },
-            }
+            require('user/plugins/conform')
         end,
         enabled = true,
     }
