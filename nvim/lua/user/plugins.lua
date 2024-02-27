@@ -327,4 +327,9 @@ require("lazy").setup({
 		end,
 		enabled = true,
 	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		config = function() end,
+		enabled = true,
+	},
 }, {})
