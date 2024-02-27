@@ -35,9 +35,6 @@ require("lazy").setup({
 		-- vim-commentary (easier comments with "gc")
 		"tpope/vim-commentary",
 		enabled = true,
-		config = function()
-			vim.cmd("autocmd FileType php setlocal commentstring=//\\ %s")
-		end,
 	},
 	{
 		-- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
