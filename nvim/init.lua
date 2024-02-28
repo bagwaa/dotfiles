@@ -5,4 +5,5 @@ require("user/globals")
 require("user/lazygit")
 
 -- colorscheme
-vim.cmd("colorscheme catppuccin-mocha")
+-- vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme tokyonight-night")

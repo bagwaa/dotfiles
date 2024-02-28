@@ -32,6 +32,12 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
 		-- vim-commentary (easier comments with "gc")
 		"tpope/vim-commentary",
 		enabled = true,
@@ -88,10 +94,11 @@ require("lazy").setup({
 	},
 	{
 		-- status bar
-		"feline-nvim/feline.nvim",
+		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("user/plugins/feline")
+			require("user/plugins/lualine")
 		end,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		enabled = true,
 	},
 	{
@@ -112,7 +119,7 @@ require("lazy").setup({
 				scope = { enabled = false },
 			})
 		end,
-		enabled = true,
+		enabled = false,
 	},
 	{
 		-- nvim-telescope (fuzzy search front end)
