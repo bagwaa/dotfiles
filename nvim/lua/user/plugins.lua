@@ -15,27 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		-- theme
-		"catppuccin/nvim",
-		name = "catppuccin",
-		config = function()
-			local catppuccin = require("catppuccin")
-
-			catppuccin.setup({
-				integrations = {
-					treesitter = true,
-				},
-			})
-
-			catppuccin.load()
-		end,
-		enabled = true,
-	},
-	{
+		-- yet another color scheme
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {},
+		enabled = true,
 	},
 	{
 		-- vim-commentary (easier comments with "gc")
@@ -102,26 +87,6 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
-		"akinsho/bufferline.nvim",
-		-- dependencies = "kyazdani42/nvim-web-devicons",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		after = "catppuccin/nvim",
-		config = function()
-			require("user.plugins.bufferline")
-		end,
-		enabled = false,
-	},
-	{
-		-- indent-blankline (add vertical lines to show indent matches easily)
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("ibl").setup({
-				scope = { enabled = false },
-			})
-		end,
-		enabled = false,
-	},
-	{
 		-- nvim-telescope (fuzzy search front end)
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -180,6 +145,7 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		-- manage downloading of LSP servers
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
@@ -237,19 +203,7 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
-		-- debugging
-		"rcarriga/nvim-dap-ui",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"mfussenegger/nvim-dap-python",
-		},
-		config = function()
-			require("user/plugins/debugging")
-		end,
-		enabled = false,
-	},
-	{
-		-- gitHub copilot - CTRL+SPACE to activate
+		-- gitHub copilot
 		"github/copilot.vim",
 		config = function()
 			require("user/plugins/copilot")
@@ -277,6 +231,7 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		-- AI in the editor
 		"Bryley/neoai.nvim",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -307,6 +262,7 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		-- filesystem side bar
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		dependencies = {
@@ -320,11 +276,13 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		-- laravel blade syntax highlighting
 		"jwalton512/vim-blade",
 		config = function() end,
 		enabled = true,
 	},
 	{
+		-- lint files on save
 		"stevearc/conform.nvim",
 		config = function()
 			require("user/plugins/conform")
@@ -332,8 +290,60 @@ require("lazy").setup({
 		enabled = true,
 	},
 	{
+		-- figure out the comment type for the current cursor position
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		config = function() end,
 		enabled = true,
+	},
+	-- disabled plugins marked for removal
+	{
+		-- theme
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			local catppuccin = require("catppuccin")
+
+			catppuccin.setup({
+				integrations = {
+					treesitter = true,
+				},
+			})
+
+			catppuccin.load()
+		end,
+		enabled = false,
+	},
+	{
+		-- bufferline (show open buffers in a tab like bar)
+		"akinsho/bufferline.nvim",
+		-- dependencies = "kyazdani42/nvim-web-devicons",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		after = "catppuccin/nvim",
+		config = function()
+			require("user.plugins.bufferline")
+		end,
+		enabled = false,
+	},
+	{
+		-- indent-blankline (add vertical lines to show indent matches easily)
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("ibl").setup({
+				scope = { enabled = false },
+			})
+		end,
+		enabled = false,
+	},
+	{
+		-- debugging
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"mfussenegger/nvim-dap-python",
+		},
+		config = function()
+			require("user/plugins/debugging")
+		end,
+		enabled = false,
 	},
 }, {})

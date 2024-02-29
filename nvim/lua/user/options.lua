@@ -76,9 +76,6 @@ vim.opt.timeoutlen = 500
 -- show the gutter for git
 vim.opt.signcolumn = "yes:2"
 
--- use system clipboard
--- vim.opt.clipboard = 'unnamedplus'
-
 -- highlight_yank (flash yanked area when yanking)
 vim.cmd([[
     augroup highlight_yank
@@ -86,9 +83,3 @@ vim.cmd([[
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
     augroup END
 ]])
-
--- vimwiki global config
-vim.g.vimwiki_list = { { path = vim.env.VIMWIKI, nested_syntaxes = { rust = "rust" } } }
-
--- hardtime on every buffer
-vim.g.hardtime_default_on = 1
