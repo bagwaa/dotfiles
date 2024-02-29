@@ -5,17 +5,17 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 local on_attach = function(client, bufnr)
-	opts.buffer = bufnr
+    opts.buffer = bufnr
 
-	-- auto formatting on save
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*",
-			callback = function(args)
-				require("conform").format({ bufnr = args.buf })
-			end,
-		})
-	end
+    -- auto formatting on save
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*",
+            callback = function(args)
+                require("conform").format({ bufnr = args.buf })
+            end,
+        })
+    end
 end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -23,20 +23,20 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
 -- configure LSP servers
 lspconfig["intelephense"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "php" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "php" },
 })
 
 lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+    capabilities = capabilities,
+    on_attach = on_attach,
 })
 
 -- lspconfig["volar"].setup({
@@ -52,16 +52,16 @@ lspconfig["tailwindcss"].setup({
 -- })
 
 lspconfig["lua_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "lua" },
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "lua" },
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
 })
 
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")

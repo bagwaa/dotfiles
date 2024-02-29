@@ -19,16 +19,16 @@ vim.opt.relativenumber = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.completeopt = "menuone,longest,preview"
 vim.opt.wildignore:append({
-	"*/.git/*",
-	"*/.hg/*",
-	"*/.svn/*",
-	"*/.idea/*",
-	"*/vendor/*",
-	"*/vendor_local/*",
-	"*/storage/*",
-	"*/cache/*",
-	"*/node_modules/*",
-	"*/bower_components/*",
+    "*/.git/*",
+    "*/.hg/*",
+    "*/.svn/*",
+    "*/.idea/*",
+    "*/vendor/*",
+    "*/vendor_local/*",
+    "*/storage/*",
+    "*/cache/*",
+    "*/node_modules/*",
+    "*/bower_components/*",
 })
 
 -- bad neovim user, surely? mostly for fixing scrolling

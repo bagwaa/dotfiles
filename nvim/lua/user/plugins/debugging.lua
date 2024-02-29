@@ -12,38 +12,38 @@ vim.keymap.set("n", "<F10>", ":lua require('dapui').toggle()<CR>")
 local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
+    dapui.open()
 end
 
 dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
+    dapui.close()
 end
 
 dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
+    dapui.close()
 end
 
 dap.adapters.codelldb = {
-	type = "server",
-	port = "${port}",
-	executable = {
-		command = "/Users/richard/.local/share/nvim/mason/bin/codelldb",
-		args = { "--port", "${port}" },
-	},
+    type = "server",
+    port = "${port}",
+    executable = {
+        command = "/Users/richard/.local/share/nvim/mason/bin/codelldb",
+        args = { "--port", "${port}" },
+    },
 }
 
 dap.configurations.cpp = {
-	{
-		name = "Launch file",
-		type = "codelldb",
-		request = "launch",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-		end,
-		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
-		showDisassembly = "never",
-	},
+    {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        showDisassembly = "never",
+    },
 }
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
