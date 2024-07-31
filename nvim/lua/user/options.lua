@@ -13,7 +13,6 @@ vim.opt.wrap = false
 
 -- line numbers and relative line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- autocompletion in command mode
 vim.opt.wildmode = "longest:full,full"

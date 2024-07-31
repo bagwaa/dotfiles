@@ -1,4 +1,9 @@
-local slow_format_filetypes = {}
+local slow_format_filetypes = {
+}
+
+local ignore_file_types = {
+    blade = true,
+}
 
 require("conform").setup({
     formatters_by_ft = {
@@ -13,18 +18,24 @@ require("conform").setup({
         -- format the order of tailwind classes
         -- blade = { "rustywind" },
     },
-    format_on_save = function(bufnr)
-        if slow_format_filetypes[vim.bo[bufnr].filetype] then
-            return
-        end
-        local function on_format(err)
-            if err and err:match("timeout$") then
-                slow_format_filetypes[vim.bo[bufnr].filetype] = true
-            end
-        end
+    -- format_on_save = function(bufnr)
+    -- ignore some filetypes when formatting on save because they do not match the team's coding style
+    -- if ignore_file_types[vim.bo[bufnr].filetype] then
+    --     return
+    -- end
 
-        return { timeout_ms = 200, lsp_fallback = true }, on_format
-    end,
+    -- if slow_format_filetypes[vim.bo[bufnr].filetype] then
+    --     return
+    -- end
+
+    -- local function on_format(err)
+    --     if err and err:match("timeout$") then
+    --         slow_format_filetypes[vim.bo[bufnr].filetype] = true
+    --     end
+    -- end
+
+    -- return { timeout_ms = 200, lsp_fallback = true }, on_format
+    -- end,
 
     format_after_save = function(bufnr)
         if not slow_format_filetypes[vim.bo[bufnr].filetype] then
