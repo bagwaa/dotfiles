@@ -39,6 +39,20 @@ lspconfig["tailwindcss"].setup({
     on_attach = on_attach,
 })
 
+lspconfig["rust_analyzer"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "rust" },
+    root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+        },
+    },
+})
+
 -- lspconfig["volar"].setup({
 --     -- capabilities = capabilities,
 --     on_attach = on_attach,

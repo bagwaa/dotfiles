@@ -92,7 +92,6 @@ vim.keymap.set("n", "<C-p>", [[<cmd>lua require('telescope.builtin').find_files(
 vim.keymap.set("n", "<leader>pp", [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 vim.keymap.set("n", "<Leader>pg", [[<cmd>lua require('telescope.builtin').git_files()<CR>]])
 vim.keymap.set("n", "<Leader>fr", [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
-vim.keymap.set("n", "<Leader>bb", [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set("n", "<Leader>e", [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 vim.keymap.set("n", "<Leader>ff", [[<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>]])
 vim.keymap.set("n", "<Leader>l", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])

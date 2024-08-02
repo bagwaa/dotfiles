@@ -21,9 +21,6 @@ require("lazy").setup({
         -- yet another color scheme
         -- #[CORE]
         "folke/tokyonight.nvim",
-        -- lazy = false,
-        -- priority = 1000,
-        -- opts = {},
         config = function()
             require("user/plugins/theme")
         end,
@@ -221,6 +218,15 @@ require("lazy").setup({
         -- #[OPTIONAL]
         "JoosepAlviste/nvim-ts-context-commentstring",
         config = function() end,
+        enabled = true,
+    },
+    {
+        -- some basic rust tools, and format on save
+        -- #[OPTIONAL]
+        "rust-lang/rust.vim",
+        config = function()
+            vim.g.rustfmt_autosave = 1
+        end,
         enabled = true,
     },
 }, {})
