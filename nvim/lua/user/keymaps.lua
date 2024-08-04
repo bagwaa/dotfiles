@@ -60,7 +60,6 @@ vim.keymap.set("n", "<leader>2", ":Neotree buffers reveal toggle right<CR>")
 vim.keymap.set("n", "<leader>bb", ":Neotree buffers reveal toggle right<CR>")
 
 -- rust specific keymaps
-vim.keymap.set("n", "<Leader>cc", ":Cargo check<CR>")
 vim.keymap.set("n", "<Leader>cb", ":Cargo build<CR>")
 vim.keymap.set("n", "<Leader>cr", ":Cargo run<CR>")
 vim.keymap.set("n", "<Leader>ct", ":Cargo test<CR>")

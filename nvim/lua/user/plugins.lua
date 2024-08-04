@@ -227,6 +227,25 @@ require("lazy").setup({
         config = function()
             vim.g.rustfmt_autosave = 1
         end,
+        ft = "rust",
+        enabled = true,
+    },
+    {
+        -- lint files on :Format
+        -- #[OPTIONAL]
+        "stevearc/conform.nvim",
+        config = function()
+            require("user/plugins/conform")
+
+            -- Create a user command `:Format` that calls the print_hello function
+            vim.api.nvim_create_user_command(
+                'Format',  -- Command name
+                function(args)
+                    require("conform").format({ bufnr = args.buf })
+                end,  -- Function to call
+                {}  -- Options (none in this case)
+            )
+        end,
         enabled = true,
     },
 }, {})
