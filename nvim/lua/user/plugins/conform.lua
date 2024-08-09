@@ -5,7 +5,7 @@ require("conform").setup({
         python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
-        vue = { { "prettierd", "prettier" } },
+        vue = { { "prettierd", "prettier" }, { "rustywind" } },
         -- vue = { "rustywind" },
         php = { { "pint" } },
         -- format the order of tailwind classes
