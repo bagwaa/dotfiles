@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
         "python",
         "regex",
         "rust",
+        "slint",
         "scss",
         "sql",
         "svelte",

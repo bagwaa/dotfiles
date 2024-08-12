@@ -39,6 +39,12 @@ lspconfig["tailwindcss"].setup({
     on_attach = on_attach,
 })
 
+lspconfig["slint_lsp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = { "slint" },
+})
+
 lspconfig["rust_analyzer"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
