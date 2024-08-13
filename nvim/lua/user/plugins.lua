@@ -214,6 +214,16 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        "mbbill/undotree",
+        config = function()
+            vim.keymap.set("n", "<Leader>3", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
+            -- set the style
+            vim.g.undotree_WindowLayout = 3
+            vim.g.undotree_SplitWidth = 60
+        end,
+        enabled = true,
+    },
+    {
         -- figure out the comment type for the current cursor position
         -- #[OPTIONAL]
         "JoosepAlviste/nvim-ts-context-commentstring",
