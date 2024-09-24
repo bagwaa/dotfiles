@@ -10,5 +10,6 @@ require("conform").setup({
         php = { { "pint" } },
         -- format the order of tailwind classes
         blade = { "rustywind" },
+        go = { "gofmt" },
     },
 })

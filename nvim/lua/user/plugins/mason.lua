@@ -23,6 +23,7 @@ mason_lspconfig.setup({
         "pyright",
         "intelephense",
         "volar",
-    },
+        "gopls",
+},
     automatic_installation = true,
 })

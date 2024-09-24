@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = "*",
             callback = function(args)
-                -- require("conform").format({ bufnr = args.buf })
+                require("conform").format({ bufnr = args.buf })
             end,
         })
     end
@@ -43,6 +43,23 @@ lspconfig["slint_lsp"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     filetypes = { "slint" },
+})
+
+lspconfig["gopls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_dir = lspconfig.util.root_pattern("go.mod", "go.work", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 })
 
 lspconfig["rust_analyzer"].setup({

@@ -12,4 +12,7 @@ vim.cmd([[
   let g:test#php#phpunit#executable = 'php artisan test --parallel --stop-on-failure'
   let test#php#phpunit#options = '--colors=always'
   let g:test#echo_command = 0
+
+  let g:test#go#gotest#executable = 'richgo test'
 ]])
+
