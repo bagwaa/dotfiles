@@ -15,7 +15,6 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-        "tsserver",
         "html",
         "cssls",
         "tailwindcss",
@@ -24,6 +23,6 @@ mason_lspconfig.setup({
         "intelephense",
         "volar",
         "gopls",
-},
+    },
     automatic_installation = true,
 })
