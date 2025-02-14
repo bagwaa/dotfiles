@@ -103,7 +103,3 @@ vim.cmd([[
     augroup END
 ]])
 
--- rare file types
-vim.cmd([[
-    autocmd BufEnter *.slint :setlocal ft=slint
-]])
