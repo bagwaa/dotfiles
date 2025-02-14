@@ -64,5 +64,9 @@ vim.keymap.set("n", "<Leader>cb", ":Cargo build<CR>")
 vim.keymap.set("n", "<Leader>cr", ":Cargo run -q<CR>")
 vim.keymap.set("n", "<Leader>ct", ":Cargo test<CR>")
 
+-- use <leader> gg to :GoRun 
+vim.keymap.set("n", "<Leader>gg", ":GoRun<CR>")
+
 -- open the file
 -- vim.keymap.set("n", "<Leader>o", ":!open %<CR><CR>")
+
