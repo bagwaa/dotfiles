@@ -4,21 +4,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-        { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-        { out, "WarningMsg" },
-        { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        -- yet another color scheme
+        -- tokyonight theme
         -- #[CORE]
         "folke/tokyonight.nvim",
         config = function()
@@ -33,7 +33,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- vim-surround (manipulate surrounding things like quotes and bracers with cs"')
+        -- vim-surround (manipulate surrounding elements like quotes and bracers with cs"')
         -- #[CORE]
         "tpope/vim-surround",
         enabled = true,
@@ -45,13 +45,11 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- vim-repeat, use the . key to repeat tpope commands like change surround
         -- #[OPTIONAL]
         "tpope/vim-repeat",
         enabled = true,
     },
     {
-        -- nvim-autopairs (typing an opening bracket created the closed one and drops us inbetween)
         -- #[OPTIONAL]
         "windwp/nvim-autopairs",
         config = function()
@@ -60,7 +58,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- status bar
         -- #[CORE]
         "nvim-lualine/lualine.nvim",
         config = function()
@@ -85,7 +82,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- gitsigns (add some git commands to navigate and handle changes)
         -- #[OPTIONAL]
         "lewis6991/gitsigns.nvim",
         config = function()
@@ -94,7 +90,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        --  vim-peekaboo (show registers when yanking into different places)
+        --  vim-peekaboo - show registers with " in normal mode
         -- #[OPTIONAL]
         "junegunn/vim-peekaboo",
         config = function()
@@ -103,7 +99,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- toggle a terminal in a popup
         -- #[OPTIONAL]
         "akinsho/toggleterm.nvim",
         version = "*",
@@ -118,7 +113,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- vim-test (a configurable test runner which adds commands like ,tt ,tn and ,tf)
         -- #[OPTIONAL]
         "vim-test/vim-test",
         config = function()
@@ -127,7 +121,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- manage downloading of LSP servers
+        -- LSP Manager - :Mason to install and manage LSP servers
         -- #[CORE]
         "williamboman/mason.nvim",
         dependencies = {
@@ -139,12 +133,12 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- nvim-lspconfig (allow us to install and manage language servers with configs)
+        -- LSP Configurations
         -- #[CORE]
         "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
+            { "antosha417/nvim-lsp-file-operations", config = true },
         },
         config = function()
             require("user/plugins/lspconfig")
@@ -152,7 +146,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- nvim-cmp (a completion engine frontend of neovim, works closely with LSPs)
+        -- LSP Completion Engine for the Frontend
         -- #[CORE]
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -168,13 +162,18 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- nice popups menu for selections and text boxes
-        -- #[OPTIONAL]
-        "stevearc/dressing.nvim",
+        -- nice pop selection menu for the UI
+        "nvim-telescope/telescope-ui-select.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        config = function()
+            require("user/plugins/telescope-ui-select")
+        end,
         enabled = true,
     },
     {
-        -- treesitter (add meaning to source files we edit, this allows better highlighting)
+        -- treesitter - give meaning and structure to the text in the buffer
         -- #[CORE]
         "nvim-treesitter/nvim-treesitter",
         build = function()
@@ -182,7 +181,6 @@ require("lazy").setup({
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
-            -- "nvim-treesitter/playground",
         },
         config = function()
             require("user.plugins.treesitter")
@@ -190,7 +188,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- gitHub copilot
         -- #[CORE]
         "github/copilot.vim",
         config = function()
@@ -199,7 +196,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- filesystem side bar
         -- #[CORE]
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -214,6 +210,7 @@ require("lazy").setup({
         enabled = true,
     },
     {
+        -- <leader>3 to see the undo tree history
         "mbbill/undotree",
         config = function()
             vim.keymap.set("n", "<Leader>3", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
@@ -227,11 +224,12 @@ require("lazy").setup({
         -- figure out the comment type for the current cursor position
         -- #[OPTIONAL]
         "JoosepAlviste/nvim-ts-context-commentstring",
-        config = function() end,
+        config = function()
+        end,
         enabled = true,
     },
     {
-        -- some basic rust tools, and format on save
+        -- some basic rust tools
         -- #[OPTIONAL]
         "rust-lang/rust.vim",
         config = function()
@@ -241,21 +239,65 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- lint files on :Format
+        -- none-ls for formatting and linting outside a language server
         -- #[OPTIONAL]
-        "stevearc/conform.nvim",
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
         config = function()
-            require("user/plugins/conform")
-
-            -- Create a user command `:Format` that calls the print_hello function
-            vim.api.nvim_create_user_command(
-                'Format',  -- Command name
-                function(args)
-                    require("conform").format({ bufnr = args.buf })
-                end,  -- Function to call
-                {}  -- Options (none in this case)
-            )
+            require("user/plugins/none-ls")
         end,
         enabled = true,
+    },
+    {
+        -- add some nice Laravel features if you are working with Laravel
+        -- #[OPTIONAL]
+        "adalessa/laravel.nvim",
+        dependencies = {
+            "tpope/vim-dotenv",
+            "nvim-telescope/telescope.nvim",
+            "MunifTanjim/nui.nvim",
+            "kevinhwang91/promise-async",
+        },
+        cmd = { "Laravel" },
+        keys = {
+            { "<leader>la", ":Laravel artisan<cr>" },
+            { "<leader>lr", ":Laravel routes<cr>" },
+            { "<leader>lm", ":Laravel related<cr>" },
+        },
+        event = { "VeryLazy" },
+        opts = {},
+        config = true,
+        enabled = true,
+    },
+    {
+        -- create a new Laravel helper file
+        -- #[OPTIONAL]
+        "Bleksak/laravel-ide-helper.nvim",
+        opts = {
+            write_to_models = true,
+            save_before_write = true,
+            format_after_gen = true,
+        },
+        enabled = function()
+            return vim.fn.filereadable("artisan") ~= 0
+        end,
+        keys = {
+            {
+                "<leader>lgm",
+                function()
+                    require("laravel-ide-helper").generate_models(vim.fn.expand("%"))
+                end,
+                desc = "Generate Model Info for current model",
+            },
+            {
+                "<leader>lgM",
+                function()
+                    require("laravel-ide-helper").generate_models()
+                end,
+                desc = "Generate Model Info for all models",
+            },
+        },
     },
 }, {})
