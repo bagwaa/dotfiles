@@ -2,8 +2,6 @@ require("nvim-treesitter.configs").setup({
     ensure_installed = {
         "c",
         "css",
-        "diff",
-        "dockerfile",
         "dot",
         "go",
         "html",
@@ -15,10 +13,9 @@ require("nvim-treesitter.configs").setup({
         "markdown",
         "markdown_inline",
         "php",
-        "python",
+        "html",
         "regex",
         "rust",
-        "slint",
         "scss",
         "sql",
         "svelte",
@@ -48,5 +45,22 @@ require("nvim-treesitter.configs").setup({
                 ["aa"] = "@parameter.outer",
             },
         },
+    },
+})
+
+-- Add Blade support
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.blade = {
+    install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+    },
+    filetype = "blade",
+}
+
+vim.filetype.add({
+    pattern = {
+        [".*%.blade%.php"] = "blade",
     },
 })
