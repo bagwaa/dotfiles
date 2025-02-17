@@ -6,6 +6,15 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
 local on_attach = function(client, bufnr)
+    local file_path = vim.api.nvim_buf_get_name(bufnr)
+
+    -- if php actor and scanning the tests folder then ignore it
+    if client.name == "phpactor" and string.match(file_path, "/tests") then
+        vim.lsp.stop_client(client.id, true)
+        print("phpactor disabled for tests")
+    end
+    -- end of phpactor check
+
     opts.buffer = bufnr
 
     keymap.set({ "n", "v" }, "<Leader>a", vim.lsp.buf.code_action, opts)
@@ -47,6 +56,8 @@ lspconfig.tailwindcss.setup({
 lspconfig.phpactor.setup({
     on_attach = on_attach,
     capabilities = capabilities,
+    filetypes = { "php" },
+    root_dir = lspconfig.util.root_pattern("composer.json"),
 })
 
 lspconfig.intelephense.setup({
