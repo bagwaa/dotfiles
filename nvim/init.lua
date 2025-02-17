@@ -4,4 +4,4 @@ require("user/keymaps")
 require("user/globals")
 
 -- colorscheme
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme onedark")

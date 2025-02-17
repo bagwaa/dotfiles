@@ -18,12 +18,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        -- tokyonight theme
+        -- one dark theme
         -- #[CORE]
-        "folke/tokyonight.nvim",
+        "navarasu/onedark.nvim",
         config = function()
-            require("user/plugins/theme")
+            require("onedark").setup({
+                style = "deep",
+            })
         end,
+        lazy = false,
         enabled = true,
     },
     {
@@ -74,7 +77,7 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
-                build = "make"
+                build = "make",
             },
             "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope-live-grep-args.nvim",
