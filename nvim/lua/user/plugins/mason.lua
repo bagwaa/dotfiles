@@ -16,14 +16,6 @@ mason.setup({
 mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "phpactor",
-        "intelephense",
-        "volar",
-        "gopls",
-        "rust_analyzer",
     },
     automatic_installation = true,
 })

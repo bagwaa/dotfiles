@@ -139,35 +139,6 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- LSP Configurations
-        -- #[CORE]
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            { "antosha417/nvim-lsp-file-operations", config = true },
-        },
-        config = function()
-            require("user/plugins/lspconfig")
-        end,
-        enabled = true,
-    },
-    {
-        -- LSP Completion Engine for the Frontend
-        -- #[CORE]
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "rafamadriz/friendly-snippets",
-        },
-        config = function()
-            require("user/plugins/cmp")
-        end,
-        enabled = true,
-    },
-    {
         -- nice pop selection menu for the UI
         "nvim-telescope/telescope-ui-select.nvim",
         dependencies = {
@@ -243,67 +214,5 @@ require("lazy").setup({
         end,
         ft = "rust",
         enabled = true,
-    },
-    {
-        -- none-ls for formatting and linting outside a language server
-        -- #[OPTIONAL]
-        "nvimtools/none-ls.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("user/plugins/none-ls")
-        end,
-        enabled = true,
-    },
-    {
-        -- add some nice Laravel features if you are working with Laravel
-        -- #[OPTIONAL]
-        "adalessa/laravel.nvim",
-        dependencies = {
-            "tpope/vim-dotenv",
-            "nvim-telescope/telescope.nvim",
-            "MunifTanjim/nui.nvim",
-            "kevinhwang91/promise-async",
-        },
-        cmd = { "Laravel" },
-        keys = {
-            { "<leader>la", ":Laravel artisan<cr>" },
-            { "<leader>lr", ":Laravel routes<cr>" },
-            { "<leader>lm", ":Laravel related<cr>" },
-        },
-        event = { "VeryLazy" },
-        opts = {},
-        config = true,
-        enabled = true,
-    },
-    {
-        -- create a new Laravel helper file
-        -- #[OPTIONAL]
-        "Bleksak/laravel-ide-helper.nvim",
-        opts = {
-            write_to_models = true,
-            save_before_write = true,
-            format_after_gen = true,
-        },
-        enabled = function()
-            return vim.fn.filereadable("artisan") ~= 0
-        end,
-        keys = {
-            {
-                "<leader>lgm",
-                function()
-                    require("laravel-ide-helper").generate_models(vim.fn.expand("%"))
-                end,
-                desc = "Generate Model Info for current model",
-            },
-            {
-                "<leader>lgM",
-                function()
-                    require("laravel-ide-helper").generate_models()
-                end,
-                desc = "Generate Model Info for all models",
-            },
-        },
     },
 }, {})

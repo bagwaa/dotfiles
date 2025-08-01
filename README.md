@@ -4,20 +4,23 @@
 
 - neovim 0.9.0 or greater
 - tmux (`brew install tmux`)
-- yabai (`brew install koekeishiya/formulae/yabai`)
-- skhd (`brew install koekeishiya/formulae/skhd`)
 - ripgrep / fzf (`brew install ripgrep fzf`)
 - lazygit (`brew install lazygit`)
 
-## TMUX Plugin install
+## Tmux Plugin Manager (TPM)
 
-This configuration uses plugins, for that reason we need to install them using the following command
+This configuration uses plugins, for that reason we need to install TPM 
+
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
+and then use the following command
 
 `<CTRL> A <SHIFT> I`
 
 ## Using Tmux
 
-Sessions can be attached to and detached from, this allows us to have multiple sessions running at the same time and switch between them.  Each session can have multiple windows.
+Sessions can be attached to and detached from, this allows us to have multiple sessions running at the same time and switch between them.  
+Each session can have multiple windows.
 
 - To create a session type `tmux` in the terminal.
 - To disconnect from a session run `<CTRL> A D`
@@ -35,20 +38,14 @@ Inside neovim run `:Lazy`
 
 ### Shortcuts
 
-I have configured a lot of keymaps to make life easier for ME, your milage may vary, feel free to edit `keymaps.lua` to suit your needs. Also, if you press the leader key and nothing else, you will be presented with a cheatsheet after 1 second or so.
+I have configured a lot of keymaps to make life easier for ME, your milage may vary, feel free to edit `keymaps.lua` to suit your needs. 
+Also, if you press the leader key and nothing else, you will be presented with a cheatsheet after 1 second or so.
 
 ### Navigation within a file
 
 All the usual vim navigation commands work, however I have added some extra ones to make life easier
 
 - type `s` followed by two letters you are looking for, you will then be taken to the first match. If there are any more then you will be able to use the key shown.
-
-### Creating a test from a corresponding file
-
-- Goto the file you want to test, for example `User.php` in the models directory
-- Type `,e` which will try and switch to the test for that class
-- If it can't find one, it will ask if you want to create a feature test or a unit test
-- Once the blank file is open, type `ftest` or `utest` to load a test class snippet
 
 ### Sidebar
 
@@ -60,9 +57,7 @@ All the usual vim navigation commands work, however I have added some extra ones
 
 ### Lsp
 
-- Use `:LspInfo` to see what language servers are attached to the current buffer
-- use `:Mason` to install and update language servers
-- use `:PhpActorClassNew` to create a new class from a template
+- LSP has been removed for now as the configuration will need updating, also I am trying to keep this config from being something that needs constant maintenence.
 
 ### Terminal
 
@@ -111,46 +106,3 @@ If you want to move between a few files in a project quickly without having to u
 - `<leader> <space> <space>` to mark a file at the current location
 - `<leader> <space>` to switch between the marked files
 
-### AI
-
-You can ask an assistant to give you hints and tips on concepts that you might need help with using `<leader>m`.
-
-#### Python
-
-```
-mkdir .virtualenvs
-cd .virtualenvs
-python -m venv debugpy
-debugpy/bin/python -m pip install debugpy
-```
-
-#### Tailwind
-
-TailwindCSS is installed in the LSP, however it won't work unless tailwind is actually installed into the project, when viewing a file with tailwind classes, the colours will be displayed in the editor visually.
-
-### Window Manager Setup
-
-#### Configure some OSX Settings for yabai
-
-- Open Several Desktops (~7) on Your Machine
-- Go To Keyboard Settings > Shortcuts > Mission Control
-- Expand Mission Control and Turn On Shortcuts for Switching Spaces 1-7 with "Ctrl + # Of Space"
-- Go to System Settings > Accessibility > Display
-- Turn On Reduce Motion
-- Go To System Settings > Desktop & Dock > Mission Control
-- Turn off "Automatically Rearrange Spaces Based On Most Recent Use"
-
-I use this exact configuration https://www.josean.com/posts/yabai-setup (video format: https://www.youtube.com/watch?v=k94qImbFKWE) however a few notes about restarting these services using brew.
-
-- `brew install koekeishiya/formulae/yabai`
-- `brew install koekeishiya/formulae/skhd`
-
-instead of
-- `brew services start yabai`
-- `brew services restart yabai`
-
-use
-- `yabai --start-service`
-- `yabai --restart-service`
-
-Same with SKHD.
