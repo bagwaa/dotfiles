@@ -7,3 +7,7 @@ ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
 rm -fr $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+rm -fr $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+ln -s $DOTFILES/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+
