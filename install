@@ -2,20 +2,8 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-rm -fr $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
-
 rm -fr $HOME/.tmux.conf
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
 rm -fr $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
-
-rm -fr $HOME/.config/phpactor
-ln -s $DOTFILES/phpactor $HOME/.config/phpactor
-
-rm -fr $HOME/.config/yabai
-ln -s $DOTFILES/yabai $HOME/.config/yabai
-
-rm -fr $HOME/.config/skhd
-ln -s $DOTFILES/skhd $HOME/.config/skhd
