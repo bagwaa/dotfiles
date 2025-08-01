@@ -11,3 +11,5 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 rm -fr $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 ln -s $DOTFILES/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 
+rm -fr $HOME/.config/starship.toml
+ln -s $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
