@@ -1,5 +1,12 @@
 # Changelog
 
+## 2025-01-15 16:00 - Tmux Window Renumbering
+
+### Tmux
+- Enabled `renumber-windows` so windows are automatically renumbered when one is closed
+
+---
+
 ## 2025-01-15 15:45 - Keymap Reorganization
 
 ### Terminal Keymaps
