@@ -6,6 +6,7 @@
 - tmux (`brew install tmux`)
 - ripgrep / fzf (`brew install ripgrep fzf`)
 - lazygit (`brew install lazygit`)
+- Claude Code CLI (`npm install -g @anthropic-ai/claude-code`)
 
 ## Tmux Plugin Manager (TPM)
 
@@ -109,8 +110,9 @@ These require a license key in `~/intelephense/licence.txt`:
 
 ### Terminal
 
-- `,cf` toggle floating terminal
-- `,cc` toggle terminal at bottom
+- `,of` toggle floating terminal
+- `,ot` toggle terminal at bottom
+- `<Ctrl>+H/J/K/L` navigate back to editor from terminal
 
 ### Running Tests
 
@@ -132,6 +134,35 @@ These require a license key in `~/intelephense/licence.txt`:
 ### Copilot
 
 - `<Ctrl>+<Space>` accept Copilot suggestion
+
+### Claude Code Integration
+
+This config includes [claudecode.nvim](https://github.com/coder/claudecode.nvim) which connects Neovim to the Claude Code CLI. When you run `claude` in your terminal, it automatically detects Neovim and gains access to your editor.
+
+#### What Claude Code can do when connected:
+
+- **See your current file and selections** - Claude knows what you're looking at in real-time
+- **Make edits with diff view** - When Claude proposes changes, you see them in Neovim's native diff view
+- **Access your file explorer** - Add files to Claude's context directly from Neo-tree
+
+#### Shortcuts:
+
+- `,cc` toggle Claude Code terminal
+- `,cf` focus Claude terminal
+- `,cr` resume previous Claude session
+- `,cs` send visual selection to Claude
+- `,cb` add current file to Claude's context
+- `,ca` accept diff changes
+- `,cd` deny diff changes
+
+#### How to use:
+
+1. Run `:Lazy` to install the plugin first
+2. Open your project in Neovim
+3. Press `,cc` to open Claude Code in a floating terminal
+4. Claude automatically connects to Neovim
+5. Select code with `V` and press `,as` to send it to Claude
+6. When Claude suggests changes, accept with `,aa` or reject with `,ad`
 
 ### Commenting
 

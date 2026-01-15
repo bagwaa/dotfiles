@@ -55,6 +55,6 @@ vim.keymap.set("n", "<Leader>k", ":nohlsearch<CR>")
 vim.keymap.set("n", "<Leader><Leader>x", ":w<CR>:source %<CR>")
 
 -- open the file explorer
-vim.keymap.set("n", "<leader>1", ":Neotree reveal toggle left<CR>")
-vim.keymap.set("n", "<leader>2", ":Neotree buffers reveal toggle left<CR>")
-vim.keymap.set("n", "<leader>bb", ":Neotree buffers reveal toggle left<CR>")
+vim.keymap.set("n", "<leader>1", ":Neotree toggle left<CR>")
+vim.keymap.set("n", "<leader>!", ":Neotree reveal left<CR>")
+vim.keymap.set("n", "<leader>2", ":Neotree buffers toggle left<CR>")

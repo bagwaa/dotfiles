@@ -46,3 +46,19 @@ Install plugins: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/
 
 - neovim 0.9.0+
 - tmux, ripgrep, fzf, lazygit (all via Homebrew)
+
+## Changelog
+
+**Always update `CHANGELOG.md` when making any changes to this repository.**
+
+Format:
+```markdown
+## YYYY-MM-DD HH:MM - Brief Description
+
+### Category
+- Change description
+```
+
+- Most recent entries go at the top
+- Use `---` to separate entries
+- Group related changes under a single timestamp

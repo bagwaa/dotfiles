@@ -112,9 +112,9 @@ require("lazy").setup({
             require("toggleterm").setup({
                 direction = "horizontal",
             })
-            vim.keymap.set("n", "<Leader>cc", ":ToggleTerm direction=horizontal<CR>")
-            vim.keymap.set("n", "<Leader>cf", ":ToggleTerm direction=float<CR>")
-            vim.keymap.set("t", "<Leader>cc", "<C-\\><C-n>:ToggleTerm<CR>")
+            vim.keymap.set("n", "<Leader>ot", ":ToggleTerm direction=horizontal<CR>")
+            vim.keymap.set("n", "<Leader>of", ":ToggleTerm direction=float<CR>")
+            vim.keymap.set("t", "<Leader>ot", "<C-\\><C-n>:ToggleTerm<CR>")
         end,
         enabled = true,
     },
@@ -226,6 +226,24 @@ require("lazy").setup({
                 auto_save = true,
             })
         end,
+        enabled = true,
+    },
+    {
+        -- Claude Code integration (connects neovim to Claude Code CLI)
+        "coder/claudecode.nvim",
+        dependencies = {
+            "folke/snacks.nvim",
+        },
+        config = true,
+        keys = {
+            { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+            { "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+            { "<leader>cr", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+            { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send selection" },
+            { "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current file" },
+            { "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+            { "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+        },
         enabled = true,
     },
 }, {})
