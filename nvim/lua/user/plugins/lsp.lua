@@ -36,6 +36,12 @@ vim.lsp.config("intelephense", {
         intelephense = {
             files = {
                 maxSize = 5000000,
+                exclude = {
+                    "**/_ide_helper*.php",
+                    "**/vendor/_laravel_idea/**",
+                    "**/.history/**",
+                    "**/vendor/**/vendor/**",
+                },
             },
         },
     },
