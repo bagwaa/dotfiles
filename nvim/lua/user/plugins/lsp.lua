@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local builtin = require("telescope.builtin")
 
 -- diagnostic signs in the gutter
@@ -14,24 +13,25 @@ vim.diagnostic.config({
 })
 
 -- LSP keymaps (only active when LSP attaches)
-local on_attach = function(client, bufnr)
-    local opts = { buffer = bufnr, silent = true }
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local opts = { buffer = args.buf, silent = true }
 
-    vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gr", builtin.lsp_references, opts)
-    vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-end
+        vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gr", builtin.lsp_references, opts)
+        vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+    end,
+})
 
 -- PHP
-lspconfig.intelephense.setup({
-    on_attach = on_attach,
+vim.lsp.config("intelephense", {
     settings = {
         intelephense = {
             files = {
@@ -42,8 +42,7 @@ lspconfig.intelephense.setup({
 })
 
 -- Lua (for neovim config)
-lspconfig.lua_ls.setup({
-    on_attach = on_attach,
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
@@ -57,9 +56,20 @@ lspconfig.lua_ls.setup({
     },
 })
 
--- Web development
-lspconfig.ts_ls.setup({ on_attach = on_attach })
-lspconfig.cssls.setup({ on_attach = on_attach })
-lspconfig.html.setup({ on_attach = on_attach })
-lspconfig.jsonls.setup({ on_attach = on_attach })
-lspconfig.tailwindcss.setup({ on_attach = on_attach })
+-- Web development (use defaults)
+vim.lsp.config("ts_ls", {})
+vim.lsp.config("cssls", {})
+vim.lsp.config("html", {})
+vim.lsp.config("jsonls", {})
+vim.lsp.config("tailwindcss", {})
+
+-- Enable all configured LSP servers
+vim.lsp.enable({
+    "intelephense",
+    "lua_ls",
+    "ts_ls",
+    "cssls",
+    "html",
+    "jsonls",
+    "tailwindcss",
+})

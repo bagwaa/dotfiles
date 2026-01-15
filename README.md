@@ -2,7 +2,7 @@
 
 ## Requirements for this config
 
-- neovim 0.10.0 or greater
+- neovim 0.11.0 or greater
 - tmux (`brew install tmux`)
 - ripgrep / fzf (`brew install ripgrep fzf`)
 - lazygit (`brew install lazygit`)
@@ -89,6 +89,14 @@ When searching using ripgrep we can pass some extra arguments in the search like
 - `,ca` code actions
 - `[d` / `]d` jump between diagnostics
 - `,d` show diagnostic float
+
+#### Intelephense Premium Features
+
+These require a license key in `~/intelephense/licence.txt`:
+
+- `,rn` rename symbol across files
+- `gi` find all implementations
+- `,zs` / `,zo` code folding (close/open all folds)
 
 ### Git
 

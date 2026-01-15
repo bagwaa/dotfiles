@@ -4,5 +4,11 @@
       "Bash(nvim:*)",
       "Bash(grep:*)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "tinkerwell",
+    "playwright",
+    "context7"
+  ],
+  "enableAllProjectMcpServers": true
 }
