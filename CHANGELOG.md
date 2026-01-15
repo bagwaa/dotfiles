@@ -1,5 +1,13 @@
 # Changelog
 
+## 2025-01-15 16:30 - Autocompletion Support
+
+### Neovim
+- Added `nvim-cmp` plugin for autocompletion with LSP, buffer, and path sources
+- Keymaps: `<C-Space>` trigger completion, `<CR>` confirm, `<Tab>`/`<S-Tab>` navigate
+
+---
+
 ## 2025-01-15 16:15 - Config Cleanup
 
 ### Documentation
