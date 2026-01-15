@@ -4,11 +4,9 @@ local mason_lspconfig = require("mason-lspconfig")
 mason.setup({
     ui = {
         icons = {
-            package_installed = "",
-            package_outdated = "",
-            package_not_installed = "",
-            package_uninstalled = "",
-            package_pending = "",
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
         },
     },
 })
@@ -16,6 +14,7 @@ mason.setup({
 mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
+        "intelephense",
     },
     automatic_installation = true,
 })

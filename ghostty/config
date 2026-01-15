@@ -1,10 +1,21 @@
+# color scheme
 theme = catppuccin-frappe
+
+# font settings
 font-family = Hasklug Nerd Font Mono Light
 font-size = 15
+adjust-cell-height = 80%
+
+# remove window padding for a cleaner look
 window-padding-x = 0
 window-padding-y = 0
+
+# default window size (columns x rows)
 window-width = 140
 window-height = 35
+
+# remember window size and position between sessions
 window-save-state = always
-adjust-cell-height = 80%
+
+# automatically download updates
 auto-update = download

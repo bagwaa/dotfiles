@@ -128,13 +128,23 @@ require("lazy").setup({
     },
     {
         -- LSP Manager - :Mason to install and manage LSP servers
-        -- #[CORE]
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
         },
         config = function()
             require("user/plugins/mason")
+        end,
+        enabled = true,
+    },
+    {
+        -- LSP configuration
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
+        config = function()
+            require("user/plugins/lsp")
         end,
         enabled = true,
     },
@@ -198,21 +208,8 @@ require("lazy").setup({
         enabled = true,
     },
     {
-        -- figure out the comment type for the current cursor position
-        -- #[OPTIONAL]
+        -- figure out the comment type for the current cursor position (useful for PHP/Blade mixed files)
         "JoosepAlviste/nvim-ts-context-commentstring",
-        config = function()
-        end,
-        enabled = true,
-    },
-    {
-        -- some basic rust tools
-        -- #[OPTIONAL]
-        "rust-lang/rust.vim",
-        config = function()
-            vim.g.rustfmt_autosave = 1
-        end,
-        ft = "rust",
         enabled = true,
     },
 }, {})
