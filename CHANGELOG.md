@@ -1,5 +1,22 @@
 # Changelog
 
+## 2025-01-15 16:15 - Config Cleanup
+
+### Documentation
+- Fixed README Claude Code keymaps in "How to use" section (`,as`→`,cs`, `,aa`→`,ca`, `,ad`→`,cd`)
+- Removed false reference to leader key cheatsheet (no which-key plugin installed)
+- Updated CLAUDE.md neovim version from 0.9.0+ to 0.11.0+
+
+### Tmux
+- Removed 14 lines of commented-out legacy config
+
+### Neovim
+- Removed GitHub Copilot plugin (no longer used)
+- Converted vim-test.lua from VimScript to pure Lua
+- Removed redundant scrolloff settings (0 is already the default)
+
+---
+
 ## 2025-01-15 16:00 - Tmux Window Renumbering
 
 ### Tmux

@@ -176,14 +176,6 @@ require("lazy").setup({
     },
     {
         -- #[CORE]
-        "github/copilot.vim",
-        config = function()
-            require("user/plugins/copilot")
-        end,
-        enabled = true,
-    },
-    {
-        -- #[CORE]
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         dependencies = {

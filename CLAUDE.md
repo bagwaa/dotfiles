@@ -27,7 +27,7 @@ This creates symlinks:
 
 - `nvim/init.lua` - Entry point, loads user modules and sets colorscheme (onedark)
 - `nvim/lua/user/options.lua` - Editor options
-- `nvim/lua/user/keymaps.lua` - Key mappings (leader key shows cheatsheet after 1s)
+- `nvim/lua/user/keymaps.lua` - Key mappings
 - `nvim/lua/user/plugins.lua` - Lazy.nvim plugin specifications
 - `nvim/lua/user/plugins/` - Individual plugin configurations
 
@@ -44,7 +44,7 @@ Install plugins: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/
 
 ## Dependencies
 
-- neovim 0.9.0+
+- neovim 0.11.0+
 - tmux, ripgrep, fzf, lazygit (all via Homebrew)
 
 ## Changelog

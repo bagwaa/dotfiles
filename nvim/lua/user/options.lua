@@ -72,10 +72,6 @@ vim.opt.fillchars:append({ eob = " " })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- create an offset to the top and bottom of the buffer before scrolling
-vim.opt.scrolloff = 0
-vim.opt.sidescrolloff = 0
-
 -- nice message with options when quitting without saving
 vim.opt.confirm = true
 

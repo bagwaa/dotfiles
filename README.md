@@ -42,7 +42,6 @@ Inside neovim run `:Lazy`
 ### General Shortcuts
 
 I have configured a lot of keymaps to make life easier for ME, your milage may vary, feel free to edit `keymaps.lua` to suit your needs.
-Also, if you press the leader key and nothing else, you will be presented with a cheatsheet after 1 second or so.
 
 - `jj` exit insert mode (instead of Esc)
 - `,s` save file
@@ -131,10 +130,6 @@ These require a license key in `~/intelephense/licence.txt`:
 
 - `,3` toggle undo tree
 
-### Copilot
-
-- `<Ctrl>+<Space>` accept Copilot suggestion
-
 ### Claude Code Integration
 
 This config includes [claudecode.nvim](https://github.com/coder/claudecode.nvim) which connects Neovim to the Claude Code CLI. When you run `claude` in your terminal, it automatically detects Neovim and gains access to your editor.
@@ -161,8 +156,8 @@ This config includes [claudecode.nvim](https://github.com/coder/claudecode.nvim)
 2. Open your project in Neovim
 3. Press `,cc` to open Claude Code in a floating terminal
 4. Claude automatically connects to Neovim
-5. Select code with `V` and press `,as` to send it to Claude
-6. When Claude suggests changes, accept with `,aa` or reject with `,ad`
+5. Select code with `V` and press `,cs` to send it to Claude
+6. When Claude suggests changes, accept with `,ca` or reject with `,cd`
 
 ### Commenting
 
