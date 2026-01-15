@@ -212,4 +212,20 @@ require("lazy").setup({
         "JoosepAlviste/nvim-ts-context-commentstring",
         enabled = true,
     },
+    {
+        -- auto-session (remember open files when restarting neovim)
+        "rmagatti/auto-session",
+        lazy = false,
+        config = function()
+            vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+            require("auto-session").setup({
+                log_level = "error",
+                suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+                pre_save_cmds = { "Neotree close" },
+                auto_restore = true,
+                auto_save = true,
+            })
+        end,
+        enabled = true,
+    },
 }, {})

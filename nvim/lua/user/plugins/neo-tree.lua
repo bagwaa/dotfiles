@@ -19,6 +19,9 @@ require("neo-tree").setup({
         },
         group_empty_dirs = false
     },
+    buffers = {
+        show_unloaded = true,
+    },
     default_component_configs = {
         icon = {
             folder_closed = "",
