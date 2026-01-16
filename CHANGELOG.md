@@ -1,5 +1,13 @@
 # Changelog
 
+## 2025-01-16 14:00 - Fix Terminal Issues After Neovim Exit
+
+### Starship
+- Removed `show_notifications` and `min_time_to_notify` from cmd_duration config
+- These settings were causing terminal input issues after exiting neovim
+
+---
+
 ## 2025-01-16 13:50 - Fix Session Restore Terminal Error
 
 ### Neovim
