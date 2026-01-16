@@ -235,11 +235,22 @@ require("lazy").setup({
         "rmagatti/auto-session",
         lazy = false,
         config = function()
-            vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+            -- Exclude terminal from sessionoptions to prevent restore errors
+            vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,localoptions"
             require("auto-session").setup({
                 log_level = "error",
                 suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-                pre_save_cmds = { "Neotree close" },
+                pre_save_cmds = {
+                    "Neotree close",
+                    -- Close all terminal buffers before saving session
+                    function()
+                        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                            if vim.bo[buf].buftype == "terminal" then
+                                vim.api.nvim_buf_delete(buf, { force = true })
+                            end
+                        end
+                    end,
+                },
                 auto_restore = true,
                 auto_save = true,
             })

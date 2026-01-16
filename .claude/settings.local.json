@@ -2,13 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(nvim:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(NVIM_LOG_FILE=/tmp/nvim_log.txt nvim:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "tinkerwell",
     "playwright",
     "context7"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

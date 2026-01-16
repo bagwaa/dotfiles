@@ -1,5 +1,14 @@
 # Changelog
 
+## 2025-01-16 13:50 - Fix Session Restore Terminal Error
+
+### Neovim
+- Fixed `E474: Invalid argument: buftype=terminal` error on startup
+- Removed `terminal` from `sessionoptions` to prevent terminal buffers being saved
+- Added pre-save hook to close all terminal buffers before session save
+
+---
+
 ## 2025-01-15 16:30 - Autocompletion Support
 
 ### Neovim
