@@ -13,3 +13,10 @@ ln -s $DOTFILES/ghostty/config $HOME/Library/Application\ Support/com.mitchellh.
 
 rm -fr $HOME/.config/starship.toml
 ln -s $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
+
+mkdir -p $HOME/.config/opencode
+rm -fr $HOME/.config/opencode/opencode.json
+ln -s $DOTFILES/opencode/opencode.json $HOME/.config/opencode/opencode.json
+
+rm -fr $HOME/.config/opencode/commands
+ln -s $DOTFILES/opencode/commands $HOME/.config/opencode/commands

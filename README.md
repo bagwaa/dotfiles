@@ -6,7 +6,7 @@
 - tmux (`brew install tmux`)
 - ripgrep / fzf (`brew install ripgrep fzf`)
 - lazygit (`brew install lazygit`)
-- Claude Code CLI (`npm install -g @anthropic-ai/claude-code`)
+- OpenCode AI (`curl -fsSL https://opencode.ai/install | bash`)
 
 ## Tmux Plugin Manager (TPM)
 
@@ -32,6 +32,17 @@ Each session can have multiple windows.
 - Within each session we can create multiple windows, to create a new window run `<CTRL> A` and then `C`
 - To rename a window run `<CTRL> A ,` and type the name you want to use
 - To switch windows run `<CTRL> A` and then `N` or `P` to move to the next or previous window or just type the number of the window you want to switch to
+
+## OpenCode
+
+Custom commands are available:
+
+- `/push` - Review changes, commit with meaningful message, and push to remote
+- `/commit` - Review changes and commit without pushing
+
+Commands automatically follow repository commit conventions by analyzing git history.
+
+**Setup:** Add `export CONTEXT7_API_KEY="your-key"` to your `~/.zshrc` or `~/.bashrc`. See `opencode/README.md` for details.
 
 ## Neovim
 
@@ -77,6 +88,24 @@ When searching using ripgrep we can pass some extra arguments in the search like
 - `"foo" app` search for foo in the app directory
 - `"foo" -tphp` search for foo in php files only
 - `"foo" -tphp app` search for foo in php files only within the app folder
+
+### Formatting (Conform)
+
+Automatically format files with industry-standard formatters:
+
+- `,f` format current buffer
+
+**Supported file types:**
+- JSON (via `jq`)
+- JavaScript/TypeScript/JSX/TSX (via `prettier`)
+- CSS/SCSS/HTML (via `prettier`)
+- Markdown/YAML (via `prettier`)
+
+**Requirements:**
+- `brew install jq` for JSON formatting
+- `npm install -g prettier` for JS/TS/CSS/HTML formatting
+
+Prettier respects `.prettierrc` files in your projects.
 
 ### LSP
 

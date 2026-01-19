@@ -275,4 +275,13 @@ require("lazy").setup({
         },
         enabled = true,
     },
+    {
+        -- Formatter plugin - supports multiple formatters including jq for JSON
+        -- #[OPTIONAL]
+        "stevearc/conform.nvim",
+        config = function()
+            require("user/plugins/conform")
+        end,
+        enabled = true,
+    },
 }, {})

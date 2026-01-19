@@ -9,6 +9,7 @@ This is a dotfiles repository containing configuration files for:
 - **tmux** (`tmux/`) - Terminal multiplexer configuration with TPM plugin manager
 - **Ghostty** (`ghostty/`) - Terminal emulator configuration
 - **Starship** (`starship/`) - Cross-shell prompt configuration with Catppuccin theme
+- **OpenCode** (`opencode/`) - AI coding agent configuration with custom commands
 
 ## Installation
 
@@ -22,6 +23,8 @@ This creates symlinks:
 - `nvim/` → `~/.config/nvim`
 - `ghostty/config` → `~/Library/Application Support/com.mitchellh.ghostty/config`
 - `starship/starship.toml` → `~/.config/starship.toml`
+- `opencode/opencode.json` → `~/.config/opencode/opencode.json`
+- `opencode/commands/` → `~/.config/opencode/commands`
 
 ## Neovim Structure
 
@@ -42,10 +45,20 @@ Install plugins: Open neovim and run `:Lazy`
 
 Install plugins: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm` then `<prefix> Shift-I`
 
+## OpenCode Configuration
+
+- `opencode/opencode.json` - Main configuration file with MCP server settings
+- `opencode/commands/` - Custom slash commands
+  - `push.md` - `/push` command for commit and push
+  - `commit.md` - `/commit` command for commit only
+
+Custom commands automatically follow repository commit conventions.
+
 ## Dependencies
 
 - neovim 0.11.0+
 - tmux, ripgrep, fzf, lazygit (all via Homebrew)
+- OpenCode AI (`curl -fsSL https://opencode.ai/install | bash`)
 
 ## Changelog
 

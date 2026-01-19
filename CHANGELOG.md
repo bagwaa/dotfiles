@@ -1,5 +1,40 @@
 # Changelog
 
+## 2026-01-19 - Add Auto-Formatting Feature and OpenCode Configuration
+
+### Neovim
+- Added `conform.nvim` plugin for code formatting
+- Configured formatters:
+  - JSON: `jq`
+  - JavaScript/TypeScript/JSX/TSX: `prettier`
+  - CSS/SCSS/HTML: `prettier`
+  - Markdown/YAML: `prettier`
+- Added `<Leader>f` keymap to format the current buffer
+- Created `nvim/lua/user/plugins/conform.lua` configuration file
+- Updated README.md with formatting documentation
+
+### OpenCode
+- Added OpenCode configuration to dotfiles repository
+- Created `opencode/opencode.json` with MCP server configuration (Context7)
+- **Security:** API keys now use environment variables instead of hardcoded values
+- Created `opencode/README.md` with setup instructions
+- Created custom `/push` command to commit and push changes
+- Created custom `/commit` command to commit without pushing
+- Commands follow repository commit conventions automatically
+- Updated install script to symlink OpenCode config and commands
+- Added `CONTEXT7_API_KEY` environment variable to `.zshrc`
+- Updated CLAUDE.md and README.md with OpenCode documentation
+
+---
+
+## 2026-01-16 15:00 - Add Blade Syntax Highlighting
+
+### Neovim
+- Added `blade` to treesitter ensure_installed list for automatic parser installation
+- Enables syntax highlighting for Laravel `.blade.php` template files
+
+---
+
 ## 2025-01-16 14:00 - Fix Terminal Issues After Neovim Exit
 
 ### Starship
