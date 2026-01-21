@@ -2,7 +2,8 @@
 theme = catppuccin-frappe
 
 # font settings
-font-family = Hasklug Nerd Font Mono Light
+font-family = Hasklug Nerd Font Mono
+font-style = Light
 font-size = 15
 adjust-cell-height = 80%
 

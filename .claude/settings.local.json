@@ -3,7 +3,10 @@
     "allow": [
       "Bash(nvim:*)",
       "Bash(grep:*)",
-      "Bash(NVIM_LOG_FILE=/tmp/nvim_log.txt nvim:*)"
+      "Bash(NVIM_LOG_FILE=/tmp/nvim_log.txt nvim:*)",
+      "Bash(fc-list:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
