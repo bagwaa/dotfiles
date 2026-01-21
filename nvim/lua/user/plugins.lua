@@ -18,6 +18,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        -- Icons for neo-tree, lualine, telescope, etc.
+        -- #[CORE]
+        "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("nvim-web-devicons").setup({
+                default = true,
+            })
+        end,
+        enabled = true,
+    },
+    {
         -- one dark theme
         -- #[CORE]
         "navarasu/onedark.nvim",
@@ -255,7 +266,7 @@ require("lazy").setup({
                 auto_save = true,
             })
         end,
-        enabled = true,
+        enabled = false,
     },
     {
         -- Claude Code integration (connects neovim to Claude Code CLI)

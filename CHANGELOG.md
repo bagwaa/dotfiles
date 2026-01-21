@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-01-21 - Fix Missing Folder Icons in Neo-tree
+
+### Neovim
+- Added explicit `nvim-web-devicons` setup with `default = true` to enable icons
+- Replaced folder icons with Material Design variants for better Nerd Font compatibility
+- Added `folder_empty_open` and `highlight` properties to neo-tree icon config
+
+---
+
 ## 2026-01-19 - Add Auto-Formatting Feature and OpenCode Configuration
 
 ### Neovim
