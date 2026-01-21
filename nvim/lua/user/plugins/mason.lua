@@ -15,6 +15,8 @@ mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
         "intelephense",
+        "ts_ls",
+        "vue_ls",
     },
     automatic_installation = true,
 })

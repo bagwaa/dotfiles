@@ -62,8 +62,12 @@ vim.lsp.config("lua_ls", {
     },
 })
 
--- Web development (use defaults)
-vim.lsp.config("ts_ls", {})
+-- Web development
+vim.lsp.config("ts_ls", {
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+})
+
+vim.lsp.config("vue_ls", {})
 vim.lsp.config("cssls", {})
 vim.lsp.config("html", {})
 vim.lsp.config("jsonls", {})
@@ -74,6 +78,7 @@ vim.lsp.enable({
     "intelephense",
     "lua_ls",
     "ts_ls",
+    "vue_ls",
     "cssls",
     "html",
     "jsonls",
