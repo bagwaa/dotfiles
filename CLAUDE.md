@@ -10,6 +10,7 @@ This is a dotfiles repository containing configuration files for:
 - **Ghostty** (`ghostty/`) - Terminal emulator configuration
 - **Starship** (`starship/`) - Cross-shell prompt configuration with Catppuccin theme
 - **OpenCode** (`opencode/`) - AI coding agent configuration with custom commands
+- **Zed** (`zed/`) - Zed editor configuration (settings and keybindings)
 
 ## Installation
 
@@ -25,6 +26,8 @@ This creates symlinks:
 - `starship/starship.toml` → `~/.config/starship.toml`
 - `opencode/opencode.json` → `~/.config/opencode/opencode.json`
 - `opencode/commands/` → `~/.config/opencode/commands`
+- `zed/settings.json` → `~/.config/zed/settings.json`
+- `zed/keymap.json` → `~/.config/zed/keymap.json`
 
 ## Neovim Structure
 
@@ -53,6 +56,11 @@ Install plugins: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/
   - `commit.md` - `/commit` command for commit only
 
 Custom commands automatically follow repository commit conventions.
+
+## Zed Configuration
+
+- `zed/settings.json` - Editor settings (theme, font, LSP, formatting preferences)
+- `zed/keymap.json` - Custom key bindings
 
 ## Dependencies
 

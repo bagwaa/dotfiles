@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-02-12 - Track Zed Editor Configuration
+
+### Zed
+- Added `zed/settings.json` and `zed/keymap.json` to dotfiles repository
+- Updated install script to symlink Zed config files to `~/.config/zed/`
+- Updated CLAUDE.md with Zed documentation
+
+---
+
 ## 2026-01-21 - Fix Missing Folder Icons in Neo-tree
 
 ### Neovim

@@ -20,3 +20,9 @@ ln -s $DOTFILES/opencode/opencode.json $HOME/.config/opencode/opencode.json
 
 rm -fr $HOME/.config/opencode/commands
 ln -s $DOTFILES/opencode/commands $HOME/.config/opencode/commands
+
+mkdir -p $HOME/.config/zed
+rm -fr $HOME/.config/zed/settings.json
+ln -s $DOTFILES/zed/settings.json $HOME/.config/zed/settings.json
+rm -fr $HOME/.config/zed/keymap.json
+ln -s $DOTFILES/zed/keymap.json $HOME/.config/zed/keymap.json
