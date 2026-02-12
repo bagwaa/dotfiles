@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-02-12 - Add Shell Functions
+
+### Shell
+- Added `functions.sh` with `commit` helper (AI-generated commit messages via Claude CLI)
+- Updated README with sourcing instructions and function documentation
+
+---
+
 ## 2026-02-12 - Track Zed Editor Configuration
 
 ### Zed

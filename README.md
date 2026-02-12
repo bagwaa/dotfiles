@@ -44,6 +44,19 @@ Commands automatically follow repository commit conventions by analyzing git his
 
 **Setup:** Add `export CONTEXT7_API_KEY="your-key"` to your `~/.zshrc` or `~/.bashrc`. See `opencode/README.md` for details.
 
+## Shell Functions
+
+Add the following line to your `~/.zshrc` to load the custom shell functions:
+
+```bash
+source ~/Code/dotfiles/functions.sh
+```
+
+### Available Functions
+
+- `commit` - Stages all changes and generates a commit message using Claude CLI
+- `commit "message"` - Stages all changes and commits with the provided message
+
 ## Neovim
 
 ### Plugin Install
