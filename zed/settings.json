@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_ui_font_size": 18,
+  "agent_buffer_font_size": 16,
   "context_servers": {
     "mcp-server-context7": {
       "enabled": true,
@@ -34,5 +36,35 @@
     "mode": "dark",
     "light": "One Light",
     "dark": "One Dark"
+  },
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "!phptools", "..."],
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "cat > {buffer_path} && ./vendor/bin/pint --quiet {buffer_path} && cat {buffer_path}"
+          ]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "intelephense": {
+      "settings": {
+        "files": {
+          "exclude": [
+            "**/.git/**",
+            "**/.cache/**",
+            "**/node_modules/**"
+          ]
+        }
+      },
+      "initialization_options": {
+        "licenceKey": "/Users/bagwaa/intelephense/licence.txt"
+      }
+    }
   }
 }

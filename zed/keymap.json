@@ -30,6 +30,7 @@
       ", v": "workspace::NewFileSplitVertical",
       ", h": "workspace::NewFileSplitHorizontal",
       ", x": "pane::CloseActiveItem",
+      ", a": "editor::ToggleCodeActions",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-j": "workspace::ActivatePaneDown",
