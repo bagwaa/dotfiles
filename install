@@ -26,3 +26,11 @@ rm -fr $HOME/.config/zed/settings.json
 ln -s $DOTFILES/zed/settings.json $HOME/.config/zed/settings.json
 rm -fr $HOME/.config/zed/keymap.json
 ln -s $DOTFILES/zed/keymap.json $HOME/.config/zed/keymap.json
+
+mkdir -p $HOME/.claude/skills
+rm -fr $HOME/.claude/skills/morning
+ln -s $DOTFILES/.claude/skills/morning $HOME/.claude/skills/morning
+rm -fr $HOME/.claude/skills/raise-pr
+ln -s $DOTFILES/.claude/skills/raise-pr $HOME/.claude/skills/raise-pr
+rm -fr $HOME/.claude/skills/pr-feedback
+ln -s $DOTFILES/.claude/skills/pr-feedback $HOME/.claude/skills/pr-feedback
